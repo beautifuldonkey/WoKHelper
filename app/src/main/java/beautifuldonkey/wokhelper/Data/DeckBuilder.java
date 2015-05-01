@@ -9,16 +9,10 @@ import java.util.List;
 public class DeckBuilder {
 
     private static List<Card> deck = new ArrayList();
-    private static List<House> houses = new ArrayList();
-
     public static List<Card> buildDeck() { return deck;}
-    public static List<House> getHouseList() {return houses;}
 
     static {
-        deck.add(new Card(1, "house", "name", "title", "rank", 5));
-        deck.add(new Card(2, "house", "name2", "title2", "rank2", 5));
-
-        houses.add(new House("Hadross", "Hadross description"));
-        houses.add(new House("Tekness", "Tekness description"));
+        deck.add(new Card(1, "Hadross", "name", "title", "rank", 5));
+        deck.add(new Card(2, "Teknes", "name2", "title2", "rank2", 5));
     }
 }

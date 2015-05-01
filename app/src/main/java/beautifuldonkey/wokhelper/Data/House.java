@@ -6,10 +6,13 @@ package beautifuldonkey.wokhelper.Data;
 public class House {
 
     private String houseName;
+    private String houseSummary;
     private String houseDescription;
 
-    public House (String name, String desc){
+
+    public House (String name,String summary, String desc){
         this.houseName = name;
+        this.houseSummary = summary;
         this.houseDescription = desc;
     }
 
@@ -24,5 +27,19 @@ public class House {
     }
     public void setHouseDescription(String houseDescription) {
         this.houseDescription = houseDescription;
+    }
+    public String getHouseSummary() {
+        return houseSummary;
+    }
+    public void setHouseSummary(String houseSummary) {
+        this.houseSummary = houseSummary;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "houseName='" + houseName + '\'' +
+                ", houseSummary='" + houseSummary + '\'' +
+                '}';
     }
 }
