@@ -13,10 +13,10 @@ public class HouseData {
     public static List<House> getHouseList() {return houses;}
 
     static {
-        houses.add(new House("Hadross", "Hadross short summary", "looong description"));
-        houses.add(new House("Teknes", "Teknes short summary", " description"));
-        houses.add(new House("Nasier", "Nasier short summary", " description"));
-        houses.add(new House("Goritsi", "Goritsi short summary", " description"));
-        houses.add(new House("ShaelHan", "ShaelHan short summary", " description"));
+        houses.add(new House(1,"Hadross", "Hadross short summary", "looong description"));
+        houses.add(new House(2,"Teknes", "Teknes short summary", " description"));
+        houses.add(new House(3,"Nasier", "Nasier short summary", " description"));
+        houses.add(new House(4,"Goritsi", "Goritsi short summary", " description"));
+        houses.add(new House(5,"ShaelHan", "ShaelHan short summary", " description"));
     }
 }

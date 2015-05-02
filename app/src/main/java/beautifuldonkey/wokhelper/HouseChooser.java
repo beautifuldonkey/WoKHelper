@@ -1,14 +1,19 @@
 package beautifuldonkey.wokhelper;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,11 +39,9 @@ public class HouseChooser extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_house_chooser);
 
-        //List<Card> deck = DeckBuilder.buildDeck();
-
         houses = HouseData.getHouseList();
 
-        ArrayAdapter<House> houseArrayAdapter = new ArrayAdapter<House>(this, android.R.layout.simple_list_item_1, houses);
+        ArrayAdapter<House> houseArrayAdapter = new houseMenuArrayAdapter(this, 0, houses);
 
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(houseArrayAdapter);
@@ -50,24 +53,9 @@ public class HouseChooser extends ActionBarActivity {
                 displayHouseDetail(house);
             }
         });
-//        Iterator<House> houseIterator = houses.iterator();
-//        Iterator<Card> cardIterator  = deck.iterator();
-//
-//        StringBuilder builder = new StringBuilder();
-//
-//        while(houseIterator.hasNext()){
-//            House house = houseIterator.next();
-//            builder.append(house.getHouseName()+":"+house.getHouseSummary())
-//                    .append("\n");
-//        }
-//
-//        TextView tv = (TextView) findViewById(R.id.cards);
-//        tv.setText(builder.toString());
     }
 
     private void displayHouseDetail(House house) {
-        Log.d("MainActivity", "Displaying house: " + house.getHouseName());
-
         Intent intent = new Intent(this, HouseDetail.class );
         intent.putExtra(HOUSE_NAME,house.getHouseName());
         intent.putExtra(HOUSE_DESC,house.getHouseDescription());
@@ -98,9 +86,40 @@ public class HouseChooser extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void houseClick(View view) {
-        //TODO display house details for the selected house
+    class houseMenuArrayAdapter extends ArrayAdapter<House>{
 
+        Context context;
+        List<House> objects;
 
+        public houseMenuArrayAdapter(Context context, int resource, List<House> objects) {
+            super(context, resource, objects);
+            this.context = context;
+            this.objects = objects;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            House house = objects.get(position);
+
+            LayoutInflater inflater =  (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+
+            View view = inflater.inflate(R.layout.house_menu_item, null);
+
+            TextView tvHouseName = (TextView)view.findViewById(R.id.houseName);
+            tvHouseName.setText(house.getHouseName());
+
+            TextView tvHouseSummary = (TextView)view.findViewById(R.id.houseSummary);
+            tvHouseSummary.setText(house.getHouseSummary());
+
+            ImageView ivHouse = (ImageView)view.findViewById(R.id.imageView);
+            Log.d("houseResource","thmb_"+house.getId());
+            int res = context.getResources().getIdentifier(
+                    "thmb_" + house.getId(), "drawable", context.getPackageResourcePath()
+            );
+            ivHouse.setImageResource(res);
+
+            return super.getView(position, convertView, parent);
+        }
     }
 }
