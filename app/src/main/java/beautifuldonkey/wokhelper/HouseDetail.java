@@ -1,9 +1,14 @@
 package beautifuldonkey.wokhelper;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -12,6 +17,9 @@ public class HouseDetail extends ActionBarActivity {
     protected String houseName;
     protected String houseDesc;
     protected String houseSummary;
+    public Button units;
+    public Button description;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +31,38 @@ public class HouseDetail extends ActionBarActivity {
         houseDetailTitle.setText(houseName);
 
         houseDesc = getIntent().getStringExtra(HouseChooser.HOUSE_DESC);
-        TextView houseDetailDesc = (TextView) findViewById(R.id.houseDescription);
+        final TextView houseDetailDesc = (TextView) findViewById(R.id.houseDescription);
         houseDetailDesc.setText(houseDesc);
+
+        ImageView houseImage = (ImageView) findViewById(R.id.houseDetailImage);
+        int houseId = getIntent().getIntExtra(HouseChooser.HOUSE_ID,0);
+
+        Context context = getApplicationContext();
+        //Log.d("HouseDetail", houseId);
+        int res = context.getResources().getIdentifier(
+                "thmb_" + houseId,"drawable", context.getPackageName()
+        );
+        houseImage.setImageResource(res);
+
+        units = (Button) findViewById(R.id.btnUnits);
+        units.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                houseDetailDesc.setText("units!");
+                //TODO display units list
+            }
+        });
+
+        description = (Button) findViewById(R.id.btnDescription);
+        description.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                houseDetailDesc.setText(houseDesc);
+            }
+        });
+
     }
 
 

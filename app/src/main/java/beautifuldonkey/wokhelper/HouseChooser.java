@@ -33,6 +33,7 @@ public class HouseChooser extends ActionBarActivity {
     public static final String HOUSE_NAME = "houseName";
     public static final String HOUSE_DESC = "houseDesc";
     public static final String HOUSE_SUMMARY = "houseSummary";
+    public static final String HOUSE_ID = "id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class HouseChooser extends ActionBarActivity {
         intent.putExtra(HOUSE_NAME,house.getHouseName());
         intent.putExtra(HOUSE_DESC,house.getHouseDescription());
         intent.putExtra(HOUSE_SUMMARY,house.getHouseSummary());
+        intent.putExtra(HOUSE_ID, house.getId());
         startActivityForResult(intent, HOUSE_DETAIL_REQUEST_CODE);
     }
 
@@ -113,13 +115,13 @@ public class HouseChooser extends ActionBarActivity {
             tvHouseSummary.setText(house.getHouseSummary());
 
             ImageView ivHouse = (ImageView)view.findViewById(R.id.imageView);
-            Log.d("houseResource","thmb_"+house.getId());
+            //Log.d("houseResource","thmb_"+house.getId());
             int res = context.getResources().getIdentifier(
-                    "thmb_" + house.getId(), "drawable", context.getPackageResourcePath()
+                    "thmb_" + house.getId(), "drawable", context.getPackageName()
             );
             ivHouse.setImageResource(res);
 
-            return super.getView(position, convertView, parent);
+            return view;
         }
     }
 }

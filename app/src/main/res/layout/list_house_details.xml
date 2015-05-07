@@ -23,7 +23,23 @@
         android:layout_toRightOf="@+id/houseDetailImage"
         android:layout_toEndOf="@+id/houseDetailImage" />
 
-    <EditText
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/houseUnits"
+        android:id="@+id/btnUnits"
+        android:layout_below="@+id/houseDetailTitle"
+        android:layout_toRightOf="@+id/houseDetailImage" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/houseDescription"
+        android:id="@+id/btnDescription"
+        android:layout_below="@+id/btnUnits"
+        android:layout_toRightOf="@+id/houseDetailImage" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
@@ -32,22 +48,4 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/houseDescription"
-        android:id="@+id/btnDescription"
-        android:layout_above="@+id/houseDescription"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/houseUnits"
-        android:id="@+id/btnUnits"
-        android:layout_above="@+id/houseDescription"
-        android:layout_toRightOf="@+id/houseDetailImage"
-        android:layout_toEndOf="@+id/houseDetailImage" />
 </RelativeLayout>
