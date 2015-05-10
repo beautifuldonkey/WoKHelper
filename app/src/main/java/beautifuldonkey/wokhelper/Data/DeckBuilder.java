@@ -12,7 +12,14 @@ public class DeckBuilder {
     public static List<Card> buildDeck() { return deck;}
 
     static {
-        deck.add(new Card(1, "Hadross", "name", "title", "rank", 5));
-        deck.add(new Card(2, "Teknes", "name2", "title2", "rank2", 5));
+
+        //Card(id, house, name, title, type, rank, base, size, dz)
+        deck.add(new Card(1, "Teknes", "Defender Lineman", "Citizen", "Infantry", 1,30,2,"B",1));
+        deck.add(new Card(2, "Teknes", "Union Boss", "Union Member", "Leader", 1,40,3,"C",3));
+        deck.add(new Card(3, "Teknes", "Union Worker", "Union Member", "Infantry", 1,30,2,"C",2));
+        deck.add(new Card(4, "Teknes", "The Zaalak", null, "Specialist", 1,50,2,"C",1));
+        deck.add(new Card(5, "Teknes", "Galvanic Defender", null, "Specialist", 1,40,3,"A",3));
+        deck.add(new Card(5, "Teknes", "Defender Lineman Controller", "Citizen", "Leader", 1,30,2,"B",3));
+
     }
 }

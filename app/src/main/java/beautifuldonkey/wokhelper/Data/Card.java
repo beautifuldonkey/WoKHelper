@@ -7,17 +7,25 @@ public class Card {
     
     private int id;
     private String house;
-    private String unitName;
-    private String unitTitle;
-    private String unitRank;
+    private String name;
+    private String title;
+    private String type;
+    private int rank;
+    private int base;
+    private int size;
+    private String dz;
     private int wounds;
 
-    public Card(int id, String house, String unitName, String unitTitle, String unitRank, int wounds){
+    public Card(int id, String house, String name, String title, String type, int rank, int base, int size, String dz, int wounds){
         this.id = id;
         this.house = house;
-        this.unitName = unitName;
-        this.unitTitle = unitTitle;
-        this.unitRank = unitRank;
+        this.name = name;
+        this.title = title;
+        this.type = type;
+        this.rank = rank;
+        this.base = base;
+        this.size = size;
+        this.dz = dz;
         this.wounds = wounds;
     }
 
@@ -27,23 +35,23 @@ public class Card {
     public void setId(int id) {
         this.id = id;
     }
-    public String getUnitName() {
-        return unitName;
+    public String getName() {
+        return name;
     }
-    public void setUnitName(String unitName) {
-        this.unitName = unitName;
+    public void setName(String Name) {
+        this.name = Name;
     }
-    public String getUnitTitle() {
-        return unitTitle;
+    public String getTitle() {
+        return title;
     }
-    public void setUnitTitle(String unitTitle) {
-        this.unitTitle = unitTitle;
+    public void setTitle(String Title) {
+        this.title = Title;
     }
-    public String getUnitRank() {
-        return unitRank;
+    public int getRank() {
+        return rank;
     }
-    public void setUnitRank(String unitRank) {
-        this.unitRank = unitRank;
+    public void setRank(int Rank) {
+        this.rank = Rank;
     }
     public String getHouse() {
         return house;
