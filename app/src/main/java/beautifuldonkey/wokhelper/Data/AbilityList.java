@@ -45,10 +45,6 @@ public class AbilityList {
                 "Target 1 engaged friendly model within 3in. Place that model in contact with this model. " +
                         "You may then place this model anywhere in contact with an enemy the friendly model was engaged with."));
 
-        abilities.add(new Ability(10, "Counterattack(2)", "Reaction", "Special", null, null,
-                "Once per attack, when a DOUGHNUT is generated against this model, and this model is not killed, " +
-                        "this model may perform 1 of its melee attacks on an active enemy, replacing the attack's rate with (2)"));
-
 
         //SPECIAL
 
@@ -87,6 +83,13 @@ public class AbilityList {
         abilities.add(new Ability(50, "Defensive Expertise", null, "Special", null, null,
                 "When this model is the defender of an attack, before results are generated, it may force " +
                         "the attacker to re-roll up to 1 dice."));
+
+        abilities.add(new Ability(51, "Counterattack(2)", "Reaction", "Special", null, null,
+                "Once per attack, when a DOUGHNUT is generated against this model, and this model is not killed, " +
+                        "this model may perform 1 of its melee attacks on an active enemy, replacing the attack's rate with (2)"));
+
+        abilities.add(new Ability(52, "Iron Will", null, "Special", null, null,
+                "When targeted by a Will Attack this model gains +2 ATTACK for the attack"));
 
 
         //COMMAND

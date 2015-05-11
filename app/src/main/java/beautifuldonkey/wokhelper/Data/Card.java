@@ -21,20 +21,20 @@ public class Card {
     private int defense;
     private int attack;
     private int movement;
-    private int defOne;
-    private int defTwo;
-    private int defThree;
-    private int defFour;
-    private int defFive;
-    private int defSix;
-    private int defSeven;
-    private int defEight;
-    private int defNine;
-    private int defTen;
+    private String defOne;
+    private String defTwo;
+    private String defThree;
+    private String defFour;
+    private String defFive;
+    private String defSix;
+    private String defSeven;
+    private String defEight;
+    private String defNine;
+    private String defTen;
 
     public Card(int id, String house, String name, String title, String type, int rank, int base, int size, String dz, int wounds,
-                int defense, int attack, int movement, int defOne, int defTwo, int defThree, int defFour, int defFive, int defSix,
-                int defSeven, int defEight, int defNine, int defTen, String abilities){
+                int defense, int attack, int movement, String defOne, String defTwo, String defThree, String defFour, String defFive,
+                String defSix, String defSeven, String defEight, String defNine, String defTen, String abilities){
         this.id = id;
         this.house = house;
         this.name = name;
@@ -125,83 +125,83 @@ public class Card {
         this.movement = movement;
     }
 
-    public int getDefOne() {
+    public String getDefOne() {
         return defOne;
     }
 
-    public void setDefOne(int defOne) {
+    public void setDefOne(String defOne) {
         this.defOne = defOne;
     }
 
-    public int getDefTwo() {
+    public String getDefTwo() {
         return defTwo;
     }
 
-    public void setDefTwo(int defTwo) {
+    public void setDefTwo(String defTwo) {
         this.defTwo = defTwo;
     }
 
-    public int getDefThree() {
+    public String getDefThree() {
         return defThree;
     }
 
-    public void setDefThree(int defThree) {
+    public void setDefThree(String defThree) {
         this.defThree = defThree;
     }
 
-    public int getDefFour() {
+    public String getDefFour() {
         return defFour;
     }
 
-    public void setDefFour(int defFour) {
+    public void setDefFour(String defFour) {
         this.defFour = defFour;
     }
 
-    public int getDefFive() {
+    public String getDefFive() {
         return defFive;
     }
 
-    public void setDefFive(int defFive) {
+    public void setDefFive(String defFive) {
         this.defFive = defFive;
     }
 
-    public int getDefSix() {
+    public String getDefSix() {
         return defSix;
     }
 
-    public void setDefSix(int defSix) {
+    public void setDefSix(String defSix) {
         this.defSix = defSix;
     }
 
-    public int getDefSeven() {
+    public String getDefSeven() {
         return defSeven;
     }
 
-    public void setDefSeven(int defSeven) {
+    public void setDefSeven(String defSeven) {
         this.defSeven = defSeven;
     }
 
-    public int getDefEight() {
+    public String getDefEight() {
         return defEight;
     }
 
-    public void setDefEight(int defEight) {
+    public void setDefEight(String defEight) {
         this.defEight = defEight;
     }
 
-    public int getDefNine() {
+    public String getDefNine() {
         return defNine;
     }
 
-    public void setDefNine(int defNine) {
+    public void setDefNine(String defNine) {
         this.defNine = defNine;
     }
 
-    public int getDefTen() {
+    public String getDefTen() {
         return defTen;
     }
 
-    public void setDefTen(int defTen) {
+    public void setDefTen(String defTen) {
         this.defTen = defTen;
     }
 
