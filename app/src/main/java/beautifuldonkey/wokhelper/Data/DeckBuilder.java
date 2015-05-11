@@ -19,7 +19,7 @@ public class DeckBuilder {
         deck.add(new Card(3, "Teknes", "Union Worker", "Union Member", "Infantry", 1,30,2,"C",2));
         deck.add(new Card(4, "Teknes", "The Zaalak", null, "Specialist", 1,50,2,"C",1));
         deck.add(new Card(5, "Teknes", "Galvanic Defender", null, "Specialist", 1,40,3,"A",3));
-        deck.add(new Card(5, "Teknes", "Defender Lineman Controller", "Citizen", "Leader", 1,30,2,"B",3));
+        deck.add(new Card(6, "Teknes", "Defender Lineman Controller", "Citizen", "Leader", 1,30,2,"B",3));
 
     }
 }
