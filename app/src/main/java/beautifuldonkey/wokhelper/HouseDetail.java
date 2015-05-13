@@ -1,15 +1,27 @@
 package beautifuldonkey.wokhelper;
 
+import android.app.Activity;
 import android.content.Context;
+import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.lang.reflect.Array;
+import java.util.List;
+
+import beautifuldonkey.wokhelper.Data.Card;
+import beautifuldonkey.wokhelper.Data.DeckBuilder;
 
 
 public class HouseDetail extends ActionBarActivity {
@@ -19,12 +31,15 @@ public class HouseDetail extends ActionBarActivity {
     protected String houseSummary;
     public Button units;
     public Button description;
-
+    protected List<Card> cards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_house_details);
+        Context context = getApplicationContext();
+        cards = DeckBuilder.buildDeck();
+        final ArrayAdapter<Card> cardArrayAdapter = new cardArrayAdapter(this, 0, cards);
 
         houseName = getIntent().getStringExtra(HouseChooser.HOUSE_NAME);
         TextView houseDetailTitle = (TextView) findViewById(R.id.houseDetailTitle);
@@ -35,13 +50,8 @@ public class HouseDetail extends ActionBarActivity {
         houseDetailDesc.setText(houseDesc);
 
         ImageView houseImage = (ImageView) findViewById(R.id.houseDetailImage);
-        int houseId = getIntent().getIntExtra(HouseChooser.HOUSE_ID,0);
-
-        Context context = getApplicationContext();
-        //Log.d("HouseDetail", houseId);
-        int res = context.getResources().getIdentifier(
-                "thmb_" + houseId,"drawable", context.getPackageName()
-        );
+        int houseId = getIntent().getIntExtra(HouseChooser.HOUSE_ID, 0);
+        int res = context.getResources().getIdentifier("thmb_" + houseId,"drawable", context.getPackageName());
         houseImage.setImageResource(res);
 
         units = (Button) findViewById(R.id.btnUnits);
@@ -49,8 +59,11 @@ public class HouseDetail extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                houseDetailDesc.setText("units!");
+                houseDetailDesc.setText("");
                 //TODO display units list
+                ListView houseUnits = (ListView) findViewById(R.id.houseUnits);
+                houseUnits.setAdapter(cardArrayAdapter);
+
             }
         });
 
@@ -87,4 +100,38 @@ public class HouseDetail extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    class cardArrayAdapter extends ArrayAdapter<Card>{
+
+        Context context;
+        List<Card> objects;
+
+        public cardArrayAdapter(Context context, int resource, List<Card> objects) {
+            super(context, resource, objects);
+            this.context = context;
+            this.objects = objects;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            Card card = objects.get(position);
+
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.unit_summary,null);
+
+            TextView tvUnitName = (TextView) view.findViewById(R.id.unitName);
+            tvUnitName.setText(card.getName());
+
+            TextView tvUnitTitle = (TextView) view.findViewById(R.id.unitTitle);
+            tvUnitTitle.setText(card.getTitle());
+
+            ImageView unitImage = (ImageView) view.findViewById(R.id.unitSummaryImage);
+            int res = context.getResources().getIdentifier("thmb_0","drawable",context.getPackageName());
+            unitImage.setImageResource(res);
+
+            return view;
+        }
+    }
+
 }

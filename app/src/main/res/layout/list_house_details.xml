@@ -48,4 +48,13 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/houseUnits"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btnDescription" />
+
+
 </RelativeLayout>
