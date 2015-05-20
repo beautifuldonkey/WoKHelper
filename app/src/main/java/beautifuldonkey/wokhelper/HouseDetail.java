@@ -2,6 +2,7 @@ package beautifuldonkey.wokhelper;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -54,30 +56,38 @@ public class HouseDetail extends ActionBarActivity {
         int res = context.getResources().getIdentifier("thmb_" + houseId,"drawable", context.getPackageName());
         houseImage.setImageResource(res);
 
+        final ListView houseUnits = (ListView) findViewById(R.id.houseUnits);
+        houseUnits.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Card card = cards.get(position);
+                Intent intent = new Intent(this, CardDetail.class);
+            }
+        });
+
         units = (Button) findViewById(R.id.btnUnits);
         units.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 houseDetailDesc.setText("");
-                //TODO display units list
-                ListView houseUnits = (ListView) findViewById(R.id.houseUnits);
-                houseUnits.setAdapter(cardArrayAdapter);
-
+                if(houseUnits.getVisibility() == View.GONE){
+                    houseUnits.setVisibility(View.VISIBLE);
+                }else {
+                    houseUnits.setAdapter(cardArrayAdapter);
+                }
             }
         });
 
         description = (Button) findViewById(R.id.btnDescription);
         description.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
+                houseUnits.setVisibility(View.GONE);
                 houseDetailDesc.setText(houseDesc);
             }
         });
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
