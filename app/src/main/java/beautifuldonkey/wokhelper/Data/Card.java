@@ -1,9 +1,12 @@
 package beautifuldonkey.wokhelper.Data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Jed on 4/29/2015.
  */
-public class Card {
+public class Card implements Parcelable{
     
     private int id;
     private String house;
@@ -60,6 +63,39 @@ public class Card {
         this.defTen = defTen;
         this.abilities = abilities;
     }
+
+    public Card (Parcel source){
+        id = source.readInt();
+        name = source.readString();
+        house = source.readString();
+        title = source.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(house);
+        dest.writeString(name);
+        dest.writeString(title);
+    }
+
+    public static final Creator<Card> CREATOR = new Creator<Card>(){
+
+        @Override
+        public Card createFromParcel(Parcel source) {
+            return new Card(source);
+        }
+
+        @Override
+        public Card[] newArray(int size) {
+            return new Card[size];
+        }
+    };
 
     public String getAbilities() {
         return abilities;

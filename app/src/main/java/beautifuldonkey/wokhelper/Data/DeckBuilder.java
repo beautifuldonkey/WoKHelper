@@ -1,12 +1,15 @@
 package beautifuldonkey.wokhelper.Data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Jed on 4/29/2015.
  */
-public class DeckBuilder {
+public class DeckBuilder{
 
     private static List<Card> deck = new ArrayList();
     private static List<Card> teknesDeck = new ArrayList();
@@ -17,8 +20,12 @@ public class DeckBuilder {
         List<Card> houseDeck = new ArrayList();
 
         switch(name){
-            case("Hadross"): {houseDeck = hadrossDeck;}
-            case("Teknes"):{houseDeck = teknesDeck;}
+            case "Hadross":
+                houseDeck = hadrossDeck;
+                break;
+            case"Teknes":
+                houseDeck = teknesDeck;
+                break;
         }
 
         return houseDeck;
@@ -59,4 +66,5 @@ public class DeckBuilder {
                 ,3,1,6,6,"DOUGHNUT","DOUGHNUT","DOUGHNUT","DOUGHNUT","X","X","SONIC","BOLT","BOLT","SKULL","8,9,49,50,52"));
 
     }
+
 }

@@ -20,6 +20,10 @@
             android:name=".HouseDetail"
             android:label="@string/title_activity_house_detail" >
         </activity>
+        <activity
+            android:name=".CardDetail"
+            android:label="@string/title_activity_card_detail" >
+        </activity>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@
     <string name="welcome">Wrath of Kings Helper</string>
     <string name="houseDetailTitle">House Name</string>
     <string name="title_activity_house_detail">HouseDetail</string>
+    <string name="title_activity_card_detail">HouseDetail</string>
 
     <string name="houseDescription">Description</string>
     <string name="houseUnits">Units</string>

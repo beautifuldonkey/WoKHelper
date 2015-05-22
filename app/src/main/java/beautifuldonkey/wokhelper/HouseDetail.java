@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
+import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -91,8 +92,9 @@ public class HouseDetail extends ActionBarActivity {
 
     private void displayCard(Card card){
         Intent intent = new Intent(this, CardDetail.class);
-        intent.putExtra("CARD_ID",card.getId());
-        startActivityForResult(intent,02);
+        intent.putExtra(CardDetail.CARD_ID,card.getId());
+        intent.putExtra("CARD", (Parcelable) card);
+        startActivityForResult(intent, 02);
     }
 
     @Override
