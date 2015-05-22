@@ -66,9 +66,31 @@ public class Card implements Parcelable{
 
     public Card (Parcel source){
         id = source.readInt();
-        name = source.readString();
-        house = source.readString();
-        title = source.readString();
+          house = source.readString();
+          name = source.readString();
+          title = source.readString();
+          type = source.readString();
+          rank = source.readInt();
+          base = source.readInt();
+          size = source.readInt();
+          dz = source.readString();
+          abilities = source.readString();
+
+        //STATS
+          wounds = source.readInt();
+          defense = source.readInt();
+          attack = source.readInt();
+          movement = source.readInt();
+          defOne = source.readString();
+          defTwo = source.readString();
+          defThree = source.readString();
+          defFour = source.readString();
+          defFive = source.readString();
+          defSix = source.readString();
+          defSeven = source.readString();
+          defEight = source.readString();
+          defNine = source.readString();
+          defTen = source.readString();
     }
 
     @Override
@@ -82,6 +104,26 @@ public class Card implements Parcelable{
         dest.writeString(house);
         dest.writeString(name);
         dest.writeString(title);
+        dest.writeString(type);
+        dest.writeInt(rank);
+        dest.writeInt(base);
+        dest.writeInt(size);
+        dest.writeString(dz);
+        dest.writeString(abilities);
+        dest.writeInt(wounds);
+        dest.writeInt(defense);
+        dest.writeInt(attack);
+        dest.writeInt(movement);
+        dest.writeString(defOne);
+        dest.writeString(defTwo);
+        dest.writeString(defThree);
+        dest.writeString(defFour);
+        dest.writeString(defFive);
+        dest.writeString(defSix);
+        dest.writeString(defSeven);
+        dest.writeString(defEight);
+        dest.writeString(defNine);
+        dest.writeString(defTen);
     }
 
     public static final Creator<Card> CREATOR = new Creator<Card>(){
