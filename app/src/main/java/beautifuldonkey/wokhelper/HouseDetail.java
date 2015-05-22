@@ -40,14 +40,15 @@ public class HouseDetail extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_house_details);
         Context context = getApplicationContext();
-        cards = DeckBuilder.buildDeck();
+        //cards = DeckBuilder.buildDeck();
+        houseName = getIntent().getStringExtra(HouseChooser.HOUSE_NAME);
+        houseDesc = getIntent().getStringExtra(HouseChooser.HOUSE_DESC);
+        cards = DeckBuilder.buildHouseDeck(houseName);
         final ArrayAdapter<Card> cardArrayAdapter = new cardArrayAdapter(this, 0, cards);
 
-        houseName = getIntent().getStringExtra(HouseChooser.HOUSE_NAME);
         TextView houseDetailTitle = (TextView) findViewById(R.id.houseDetailTitle);
         houseDetailTitle.setText(houseName);
 
-        houseDesc = getIntent().getStringExtra(HouseChooser.HOUSE_DESC);
         final TextView houseDetailDesc = (TextView) findViewById(R.id.houseDescription);
         houseDetailDesc.setText(houseDesc);
 
@@ -61,7 +62,7 @@ public class HouseDetail extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Card card = cards.get(position);
-                Intent intent = new Intent(this, CardDetail.class);
+                displayCard(card);
             }
         });
 
@@ -86,7 +87,12 @@ public class HouseDetail extends ActionBarActivity {
                 houseDetailDesc.setText(houseDesc);
             }
         });
+    }
 
+    private void displayCard(Card card){
+        Intent intent = new Intent(this, CardDetail.class);
+        intent.putExtra("CARD_ID",card.getId());
+        startActivityForResult(intent,02);
     }
 
     @Override
@@ -137,11 +143,10 @@ public class HouseDetail extends ActionBarActivity {
             tvUnitTitle.setText(card.getTitle());
 
             ImageView unitImage = (ImageView) view.findViewById(R.id.unitSummaryImage);
-            int res = context.getResources().getIdentifier("thmb_0","drawable",context.getPackageName());
+            int res = context.getResources().getIdentifier("thmb_0", "drawable", context.getPackageName());
             unitImage.setImageResource(res);
 
             return view;
         }
     }
-
 }
