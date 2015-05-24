@@ -3,6 +3,7 @@ package beautifuldonkey.wokhelper;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 import beautifuldonkey.wokhelper.Data.Card;
@@ -16,6 +17,10 @@ public class CardDetail extends ActionBarActivity {
 
     TextView unitName;
     TextView unitTitle;
+    TextView unitMovement;
+    TextView unitAttack;
+    TextView unitDefense;
+    TextView unitWounds;
     TextView defOne;
     TextView defTwo;
     TextView defThree;
@@ -43,9 +48,21 @@ public class CardDetail extends ActionBarActivity {
         unitName = (TextView) findViewById(R.id.unitName);
         unitName.setText(card.getName());
 
-
         unitTitle = (TextView) findViewById(R.id.unitTitle);
         unitTitle.setText(card.getTitle());
+
+        //Log.d("MOVEMENT:", card.getMovement());
+        unitMovement = (TextView) findViewById(R.id.unitMove);
+        unitMovement.setText(String.valueOf(card.getMovement()));
+
+        unitAttack = (TextView) findViewById(R.id.unitAttack);
+        unitAttack.setText(String.valueOf(card.getAttack()));
+
+        unitDefense = (TextView) findViewById(R.id.unitDefense);
+        unitDefense.setText(String.valueOf(card.getDefense()));
+
+        unitWounds = (TextView) findViewById(R.id.unitWounds);
+        unitWounds.setText(String.valueOf(card.getWounds()));
 
         defOne = (TextView) findViewById(R.id.defOne);
         defOne.setText(card.getDefOne());

@@ -10,4 +10,8 @@
     <string name="houseUnits">Units</string>
     <string name="action_settings">action settings</string>
     <string name="def_text">SONIC</string>
+    <string name="movement">Movement</string>
+    <string name="attack">Attack</string>
+    <string name="defense">Defense</string>
+    <string name="wounds">Wounds</string>
 </resources>

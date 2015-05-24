@@ -28,6 +28,37 @@
         android:layout_below="@+id/unitName"
         android:layout_toRightOf="@+id/unitImage" />
 
+    <!--Start Attacks -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="movement"
+        android:id="@+id/unitMove"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/unitImage" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="attack"
+        android:id="@+id/unitAttack"
+        android:layout_toRightOf="@+id/unitMove"
+        android:layout_below="@+id/unitImage" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="defense"
+        android:id="@+id/unitDefense"
+        android:layout_toRightOf="@+id/unitAttack"
+        android:layout_below="@+id/unitImage" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="wounds"
+        android:id="@+id/unitWounds"
+        android:layout_toRightOf="@+id/unitDefense"
+        android:layout_below="@+id/unitImage" />
+    <!--End Attacks -->
+
     <!--Start Defenses-->
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +67,6 @@
         android:id="@+id/defOne"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,7 +74,6 @@
         android:id="@+id/defTwo"
         android:layout_below="@+id/defOne"
         android:layout_alignParentRight="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +81,6 @@
         android:id="@+id/defThree"
         android:layout_below="@+id/defTwo"
         android:layout_alignParentRight="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,7 +88,6 @@
         android:id="@+id/defFour"
         android:layout_below="@+id/defThree"
         android:layout_alignParentRight="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,7 +95,6 @@
         android:id="@+id/defFive"
         android:layout_below="@+id/defFour"
         android:layout_alignParentRight="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +102,6 @@
         android:id="@+id/defSix"
         android:layout_below="@+id/defFive"
         android:layout_alignParentRight="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,7 +109,6 @@
         android:id="@+id/defSeven"
         android:layout_below="@+id/defSix"
         android:layout_alignParentRight="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,7 +116,6 @@
         android:id="@+id/defEight"
         android:layout_below="@+id/defSeven"
         android:layout_alignParentRight="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,7 +123,6 @@
         android:id="@+id/defNine"
         android:layout_below="@+id/defEight"
         android:layout_alignParentRight="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
