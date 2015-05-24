@@ -27,4 +27,87 @@
         android:id="@+id/unitTitle"
         android:layout_below="@+id/unitName"
         android:layout_toRightOf="@+id/unitImage" />
+
+    <!--Start Defenses-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defOne"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defTwo"
+        android:layout_below="@+id/defOne"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defThree"
+        android:layout_below="@+id/defTwo"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defFour"
+        android:layout_below="@+id/defThree"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defFive"
+        android:layout_below="@+id/defFour"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defSix"
+        android:layout_below="@+id/defFive"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defSeven"
+        android:layout_below="@+id/defSix"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defEight"
+        android:layout_below="@+id/defSeven"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defNine"
+        android:layout_below="@+id/defEight"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/def_text"
+        android:id="@+id/defTen"
+        android:layout_below="@+id/defNine"
+        android:layout_alignParentRight="true" />
+    <!-- End Defenses-->
+
 </RelativeLayout>

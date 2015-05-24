@@ -9,4 +9,5 @@
     <string name="houseDescription">Description</string>
     <string name="houseUnits">Units</string>
     <string name="action_settings">action settings</string>
+    <string name="def_text">SONIC</string>
 </resources>
