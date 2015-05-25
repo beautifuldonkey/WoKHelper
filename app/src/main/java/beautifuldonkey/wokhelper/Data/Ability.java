@@ -1,9 +1,12 @@
 package beautifuldonkey.wokhelper.Data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by user on 5/10/2015.
  */
-public class Ability {
+public class Ability implements Parcelable{
     private int id;
     private String name;
     private String subName;
@@ -21,6 +24,45 @@ public class Ability {
         this.range = range;
         this.desc = desc;
     }
+
+    public Ability(Parcel source){
+        id = source.readInt();
+        name = source.readString();
+        subName = source.readString();
+        type = source.readString();
+        dice = source.readString();
+        range = source.readString();
+        desc = source.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeString(subName);
+        dest.writeString(type);
+        dest.writeString(dice);
+        dest.writeString(range);
+        dest.writeString(desc);
+    }
+
+    public static final Creator<Ability> CREATOR = new Creator<Ability>(){
+
+        @Override
+        public Ability createFromParcel(Parcel source) {
+            return new Ability(source);
+        }
+
+        @Override
+        public Ability[] newArray(int size) {
+            return new Ability[size];
+        }
+    };
 
     public int getId() {
         return id;
