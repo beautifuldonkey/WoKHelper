@@ -132,4 +132,12 @@
         android:layout_alignParentRight="true" />
     <!-- End Defenses-->
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/abilityList"
+        android:layout_below="@+id/unitMove"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

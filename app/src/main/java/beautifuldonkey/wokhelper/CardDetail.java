@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -52,6 +53,10 @@ public class CardDetail extends ActionBarActivity {
         List<Ability> abilities = AbilityList.getAbilities();
         Card card = getIntent().getParcelableExtra("CARD");
         displayCard(card);
+
+        ListView unitAbilities = (ListView) findViewById(R.id.abilityList);
+        ArrayAdapter<Ability> abilityArrayAdapter = new abilityArrayAdapter(this,0, abilities);
+        unitAbilities.setAdapter(abilityArrayAdapter);
     }
 
     protected void displayCard(Card card){
