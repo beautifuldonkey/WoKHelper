@@ -1,5 +1,6 @@
 package beautifuldonkey.wokhelper.Data;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,22 @@ public class AbilityList {
 
     public static List<Ability> getAbilities() {
         return abilities;
+    }
+
+    public static List<Ability> getAbilitiesById(String idString){
+        List<Ability> unitAbilities = new ArrayList();
+        if(idString.contains(",")){
+            String [] id =  idString.split(",");
+            for (int i = 0; i<idString.length(); i++){
+                for (int j = 0; j<abilities.size(); j++) {
+                    if (id[i] == String.valueOf(abilities.get(j).getId())){
+                        unitAbilities.add(abilities.get(j));
+                    }
+                }
+            }
+
+        }
+        return unitAbilities;
     }
 
     static {

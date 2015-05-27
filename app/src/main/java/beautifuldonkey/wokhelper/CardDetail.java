@@ -50,8 +50,10 @@ public class CardDetail extends ActionBarActivity {
         setContentView(R.layout.unit_details);
         Context context = getApplicationContext();
 
-        List<Ability> abilities = AbilityList.getAbilities();
+        //List<Ability> abilities = AbilityList.getAbilities();
+
         Card card = getIntent().getParcelableExtra("CARD");
+        List<Ability> abilities = AbilityList.getAbilitiesById(card.getAbilities());
         displayCard(card);
 
         ListView unitAbilities = (ListView) findViewById(R.id.abilityList);
@@ -132,7 +134,7 @@ class abilityArrayAdapter extends ArrayAdapter<Ability> {
 
         View view = inflater.inflate(R.layout.ability_item, null);
 
-        TextView tvHouseName = (TextView)view.findViewById(R.id.houseName);
+        TextView tvHouseName = (TextView)view.findViewById(R.id.abilityName);
         tvHouseName.setText(ability.getName());
 
 
