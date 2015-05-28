@@ -29,34 +29,65 @@
         android:layout_toRightOf="@+id/unitImage" />
 
     <!--Start Attacks -->
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/moveImage"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/unitImage"
+        android:src="@drawable/atck"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="movement"
         android:id="@+id/unitMove"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/unitImage" />
+        android:layout_below="@+id/moveImage" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/atckImage"
+        android:layout_toRightOf="@+id/moveImage"
+        android:layout_below="@+id/unitImage"
+        android:src="@drawable/atck"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="attack"
         android:id="@+id/unitAttack"
         android:layout_toRightOf="@+id/unitMove"
-        android:layout_below="@+id/unitImage" />
+        android:layout_below="@+id/atckImage" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/defImage"
+        android:layout_toRightOf="@+id/atckImage"
+        android:layout_below="@+id/unitImage"
+        android:src="@drawable/atck"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="defense"
         android:id="@+id/unitDefense"
         android:layout_toRightOf="@+id/unitAttack"
-        android:layout_below="@+id/unitImage" />
+        android:layout_below="@+id/defImage" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/woundImage"
+        android:layout_toRightOf="@+id/defImage"
+        android:layout_below="@+id/unitImage"
+        android:src="@drawable/atck"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="wounds"
         android:id="@+id/unitWounds"
         android:layout_toRightOf="@+id/unitDefense"
-        android:layout_below="@+id/unitImage" />
+        android:layout_below="@+id/woundImage" />
     <!--End Attacks -->
 
     <!--Start Defenses-->
