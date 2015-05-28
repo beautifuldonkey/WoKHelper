@@ -134,8 +134,22 @@ class abilityArrayAdapter extends ArrayAdapter<Ability> {
 
         View view = inflater.inflate(R.layout.ability_item, null);
 
-        TextView tvHouseName = (TextView)view.findViewById(R.id.abilityName);
-        tvHouseName.setText(ability.getName());
+        TextView tvAbilityName = (TextView)view.findViewById(R.id.abilityName);
+        tvAbilityName.setText(ability.getName());
+        TextView tvAbilityType = (TextView)view.findViewById(R.id.abilityType);
+        tvAbilityType.setText(ability.getType());
+        TextView tvAbilityDice = (TextView)view.findViewById(R.id.abilityDice);
+        tvAbilityDice.setText(ability.getDice());
+        TextView tvAbilityRange = (TextView)view.findViewById(R.id.abilityRange);
+        tvAbilityRange.setText(ability.getRange());
+        TextView tvAbilityDescription = (TextView)view.findViewById(R.id.abilityDescription);
+        String descText;
+        if(ability.getSubName()!= null){
+            descText = ability.getSubName() + " "+ ability.getDesc();
+        }else{
+            descText = ability.getDesc();
+        }
+        tvAbilityDescription.setText(descText);
 
 
         return view;

@@ -1,5 +1,7 @@
 package beautifuldonkey.wokhelper.Data;
 
+import android.util.Log;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +21,14 @@ public class AbilityList {
         List<Ability> unitAbilities = new ArrayList();
         if(idString.contains(",")){
             String [] id =  idString.split(",");
-            for (int i = 0; i<idString.length(); i++){
+            for (int i = 0; i<id.length; i++){
+                int  intId = Integer.parseInt(id[i]);
                 for (int j = 0; j<abilities.size(); j++) {
-                    if (id[i] == String.valueOf(abilities.get(j).getId())){
+                    if (intId == abilities.get(j).getId()){
                         unitAbilities.add(abilities.get(j));
+                        //Log.d("MATCH: ", i + abilities.get(j).getName());
                     }
+                    //Log.d("NONMATCH: ", "cardId: " + intId + "  abilityId:" + abilities.get(j).getId() +" "+abilities.get(j).getName());
                 }
             }
 
