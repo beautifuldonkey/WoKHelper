@@ -35,7 +35,7 @@
         android:id="@+id/moveImage"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/unitImage"
-        android:src="@drawable/atck"/>
+        android:src="@drawable/move"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
         android:id="@+id/defImage"
         android:layout_toRightOf="@+id/atckImage"
         android:layout_below="@+id/unitImage"
-        android:src="@drawable/atck"/>
+        android:src="@drawable/shield"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         android:id="@+id/woundImage"
         android:layout_toRightOf="@+id/defImage"
         android:layout_below="@+id/unitImage"
-        android:src="@drawable/atck"/>
+        android:src="@drawable/wounds"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
