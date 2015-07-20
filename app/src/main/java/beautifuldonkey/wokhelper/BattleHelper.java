@@ -4,6 +4,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import java.util.List;
+
+import beautifuldonkey.wokhelper.Data.House;
+import beautifuldonkey.wokhelper.Data.HouseData;
 
 
 public class BattleHelper extends ActionBarActivity {
@@ -12,6 +19,20 @@ public class BattleHelper extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_helper);
+
+        List<House> houses = HouseData.getHouseList();
+        String[] houseNames = new String[houses.size()];
+        for(int i=0; i<houses.size(); i++){
+            houseNames[i] = houses.get(i).getHouseName();
+        }
+
+        ArrayAdapter<String> houseArrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, houseNames);
+        Spinner selfHouse = (Spinner) findViewById(R.id.self_house);
+        selfHouse.setAdapter(houseArrayAdapter);
+
+        Spinner oppHouse = (Spinner) findViewById(R.id.opponent_house);
+        oppHouse.setAdapter(houseArrayAdapter);
+
     }
 
     @Override
