@@ -3,8 +3,9 @@
 
     <string name="welcome">Wrath of Kings Helper</string>
     <string name="houseDetailTitle">House Name</string>
-    <string name="title_activity_house_detail">HouseDetail</string>
+    <string name="title_activity_house_detail">House Detail</string>
     <string name="title_activity_card_detail">CardDetail</string>
+    <string name="title_activity_house_chooser">Choose a House</string>
 
     <string name="houseDescription">Description</string>
     <string name="houseUnits">Units</string>
@@ -14,4 +15,6 @@
     <string name="attack">Attack</string>
     <string name="defense">Defense</string>
     <string name="wounds">Wounds</string>
+    <string name="title_activity_main">MainActivity</string>
+
 </resources>
