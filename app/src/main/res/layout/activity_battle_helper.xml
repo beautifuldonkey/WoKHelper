@@ -6,6 +6,32 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="beautifuldonkey.wokhelper.BattleHelper">
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/self_house"
+        android:spinnerMode="dropdown"
+        android:background="@android:drawable/btn_dropdown"
+        android:layout_alignParentLeft="true"/>
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/opponent_house"
+        android:spinnerMode="dropdown"
+        android:background="@android:drawable/btn_dropdown"
+        android:layout_alignParentRight="true"/>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/self_units"
+        android:layout_below="@+id/self_house"/>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/opponent_units"
+        android:layout_below="@+id/opponent_house"/>
 
 </RelativeLayout>
