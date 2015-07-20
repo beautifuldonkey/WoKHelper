@@ -24,12 +24,12 @@ import beautifuldonkey.wokhelper.Data.Card;
 import beautifuldonkey.wokhelper.Data.DeckBuilder;
 import beautifuldonkey.wokhelper.Data.House;
 import beautifuldonkey.wokhelper.Data.HouseData;
+import beautifuldonkey.wokhelper.Data.WokConstants;
 
 
 public class HouseChooser extends ActionBarActivity {
 
     protected List<House> houses;
-    public static final int HOUSE_DETAIL_REQUEST_CODE = 01;
     public static final String HOUSE_NAME = "houseName";
     public static final String HOUSE_DESC = "houseDesc";
     public static final String HOUSE_SUMMARY = "houseSummary";
@@ -62,7 +62,7 @@ public class HouseChooser extends ActionBarActivity {
         intent.putExtra(HOUSE_DESC,house.getHouseDescription());
         intent.putExtra(HOUSE_SUMMARY,house.getHouseSummary());
         intent.putExtra(HOUSE_ID, house.getId());
-        startActivityForResult(intent, HOUSE_DETAIL_REQUEST_CODE);
+        startActivityForResult(intent, WokConstants.HOUSE_DETAIL_REQUEST_CODE);
     }
 
 

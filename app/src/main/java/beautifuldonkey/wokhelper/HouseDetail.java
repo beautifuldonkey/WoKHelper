@@ -25,6 +25,7 @@ import java.util.List;
 
 import beautifuldonkey.wokhelper.Data.Card;
 import beautifuldonkey.wokhelper.Data.DeckBuilder;
+import beautifuldonkey.wokhelper.Data.WokConstants;
 
 
 public class HouseDetail extends ActionBarActivity {
@@ -94,7 +95,7 @@ public class HouseDetail extends ActionBarActivity {
         Intent intent = new Intent(this, CardDetail.class);
         intent.putExtra(CardDetail.CARD_ID,card.getId());
         intent.putExtra("CARD", (Parcelable) card);
-        startActivityForResult(intent, 02);
+        startActivityForResult(intent, WokConstants.CARD_DETAIL_REQUEST_CODE);
     }
 
     @Override
