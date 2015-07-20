@@ -1,9 +1,15 @@
 package beautifuldonkey.wokhelper;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import beautifuldonkey.wokhelper.Data.WokConstants;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +18,25 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final Context context = getApplicationContext();
+
+        Button btn_houseInfo = (Button) findViewById(R.id.btn_info);
+        btn_houseInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, HouseChooser.class);
+                startActivityForResult(intent, WokConstants.HOUSE_INFO_REQUEST_CODE);
+            }
+        });
+
+        Button btn_battleHelp = (Button) findViewById(R.id.btn_battle);
+        btn_battleHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, BattleHelper.class);
+                startActivityForResult(intent, WokConstants.BATTLE_HELPER_REQUEST_CODE);
+            }
+        });
     }
 
     @Override
