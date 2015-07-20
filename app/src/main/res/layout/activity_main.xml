@@ -9,12 +9,14 @@
     <Button
         android:id="@+id/btn_info"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/btn_house_info"/>
 
     <Button
         android:id="@+id/btn_battle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_info"/>
+        android:layout_below="@+id/btn_info"
+        android:text="@string/btn_battle_helper"/>
 
 </RelativeLayout>

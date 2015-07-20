@@ -7,6 +7,9 @@
     <string name="title_activity_card_detail">CardDetail</string>
     <string name="title_activity_house_chooser">Choose a House</string>
 
+    <string name="btn_house_info">House Info</string>
+    <string name="btn_battle_helper">Battle Helper</string>
+
     <string name="houseDescription">Description</string>
     <string name="houseUnits">Units</string>
     <string name="action_settings">action settings</string>
@@ -16,5 +19,8 @@
     <string name="defense">Defense</string>
     <string name="wounds">Wounds</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_battle_helper">BattleHelper</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>
