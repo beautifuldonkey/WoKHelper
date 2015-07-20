@@ -28,6 +28,10 @@
             android:name=".HouseChooser"
             android:label="@string/title_activity_house_chooser" >
         </activity>
+        <activity
+            android:name=".BattleHelper"
+            android:label="@string/title_activity_battle_helper" >
+        </activity>
     </application>
 
 </manifest>
