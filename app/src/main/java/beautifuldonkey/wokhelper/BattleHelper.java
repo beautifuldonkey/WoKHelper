@@ -4,16 +4,25 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
+import beautifuldonkey.wokhelper.Data.Card;
+import beautifuldonkey.wokhelper.Data.DeckBuilder;
 import beautifuldonkey.wokhelper.Data.House;
 import beautifuldonkey.wokhelper.Data.HouseData;
 
 
 public class BattleHelper extends ActionBarActivity {
+
+    String[] selfAvailableUnitList;
+    String[] opponentAvailableUnitList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +36,47 @@ public class BattleHelper extends ActionBarActivity {
         }
 
         ArrayAdapter<String> houseArrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, houseNames);
-        Spinner selfHouse = (Spinner) findViewById(R.id.self_house);
+        final Spinner selfHouse = (Spinner) findViewById(R.id.self_house);
         selfHouse.setAdapter(houseArrayAdapter);
+        selfHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                List<Card> selfCards = DeckBuilder.buildHouseDeck(selfHouse.getItemAtPosition(position).toString());
+                selfAvailableUnitList = new String[selfCards.size()];
+                for (int i = 0; i < selfCards.size(); i++) {
+                    selfAvailableUnitList[i] = selfCards.get(i).getName();
+                }
+            }
 
-        Spinner oppHouse = (Spinner) findViewById(R.id.opponent_house);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        final Spinner oppHouse = (Spinner) findViewById(R.id.opponent_house);
         oppHouse.setAdapter(houseArrayAdapter);
+        oppHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                List<Card> oppCards = DeckBuilder.buildHouseDeck(oppHouse.getItemAtPosition(position).toString());
+                opponentAvailableUnitList = new String[oppCards.size()];
+                for(int i=0; i<oppCards.size(); i++){
+                    opponentAvailableUnitList[i] = oppCards.get(i).getName();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ListView selfAvailableUnits = (ListView) findViewById(R.id.self_units);
+        //ArrayAdapter<String> selfAvailAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, selfAvailableUnitList);
+        //selfAvailableUnits.setAdapter(selfAvailAdapter);
+
+        ListView opponentAvailableUnits = (ListView) findViewById(R.id.opponent_units);
 
     }
 
