@@ -22,6 +22,8 @@ import beautifuldonkey.wokhelper.Data.Card;
 import beautifuldonkey.wokhelper.Data.DeckBuilder;
 import beautifuldonkey.wokhelper.Data.House;
 import beautifuldonkey.wokhelper.Data.HouseData;
+import beautifuldonkey.wokhelper.Data.Motivation;
+import beautifuldonkey.wokhelper.Data.MotiviationList;
 
 
 public class BattleHelper extends ActionBarActivity {
@@ -49,11 +51,21 @@ public class BattleHelper extends ActionBarActivity {
         selfHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                List<Card> selfCards = DeckBuilder.buildHouseDeck(selfHouse.getItemAtPosition(position).toString());
+                String currentHouse = selfHouse.getItemAtPosition(position).toString();
+                List<Card> selfCards = DeckBuilder.buildHouseDeck(currentHouse);
                 selfAvailableUnitList = new ArrayList<>();
                 for (int i = 0; i < selfCards.size(); i++) {
                     selfAvailableUnitList.add(selfCards.get(i).getName());
                 }
+
+                List<Motivation> motivations = MotiviationList.getHouseMotivations(currentHouse);
+                ArrayList<String> availMotivationList = new ArrayList<>();
+                for(int i=0; i<motivations.size(); i++){
+                    availMotivationList.add(motivations.get(i).getName());
+                }
+                Spinner spinnerMotivations = (Spinner) findViewById(R.id.self_motivation);
+                ArrayAdapter<String> motivationAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, availMotivationList);
+                spinnerMotivations.setAdapter(motivationAdapter);
 
                 final Spinner selfAvailableUnits = (Spinner) findViewById(R.id.self_avail_units);
                 ArrayAdapter<String> selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
@@ -88,11 +100,21 @@ public class BattleHelper extends ActionBarActivity {
         oppHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                List<Card> oppCards = DeckBuilder.buildHouseDeck(oppHouse.getItemAtPosition(position).toString());
+                String currentHouse = oppHouse.getItemAtPosition(position).toString();
+                List<Card> oppCards = DeckBuilder.buildHouseDeck(currentHouse);
                 opponentAvailableUnitList = new ArrayList<>();
                 for (int i = 0; i < oppCards.size(); i++) {
                     opponentAvailableUnitList.add(oppCards.get(i).getName());
                 }
+
+                List<Motivation> motivations = MotiviationList.getHouseMotivations(currentHouse);
+                ArrayList<String> availMotivationList = new ArrayList<>();
+                for(int i=0; i<motivations.size(); i++){
+                    availMotivationList.add(motivations.get(i).getName());
+                }
+                Spinner spinnerMotivations = (Spinner) findViewById(R.id.opponent_motivation);
+                ArrayAdapter<String> motivationAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, availMotivationList);
+                spinnerMotivations.setAdapter(motivationAdapter);
 
                 final Spinner opponentAvailableUnits = (Spinner) findViewById(R.id.opponent_avail_units);
                 ArrayAdapter<String> oppAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, opponentAvailableUnitList);
