@@ -27,13 +27,15 @@ import beautifuldonkey.wokhelper.Data.HouseData;
 public class BattleHelper extends ActionBarActivity {
 
     ArrayList<String> selfAvailableUnitList;
+    ArrayList<String> selfSelectedUnitList;
     ArrayList<String> opponentAvailableUnitList;
+    ArrayList<String> opponentSelectedUnitList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_helper);
-        final Context context = getApplicationContext();
+        final Context context = this;
 
         List<House> houses = HouseData.getHouseList();
         String[] houseNames = new String[houses.size()];
@@ -53,17 +55,26 @@ public class BattleHelper extends ActionBarActivity {
                     selfAvailableUnitList.add(selfCards.get(i).getName());
                 }
 
-                ListView selfAvailableUnits = (ListView) findViewById(R.id.self_units);
-                ArrayAdapter<String> selfAvailAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, selfAvailableUnitList){
-                    @Override
-                    public View getView(int position, View convertView, ViewGroup parent) {
-                        View view = super.getView(position, convertView, parent);
-                        TextView textView = (TextView) view.findViewById(android.R.id.text1);
-                        textView.setTextColor(Color.BLACK);
-                        return view;
-                    }
-                };
+                final Spinner selfAvailableUnits = (Spinner) findViewById(R.id.self_avail_units);
+                ArrayAdapter<String> selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
                 selfAvailableUnits.setAdapter(selfAvailAdapter);
+                selfAvailableUnits.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if(selfSelectedUnitList == null){
+                            selfSelectedUnitList = new ArrayList<>();
+                        }
+                        selfSelectedUnitList.add(selfAvailableUnits.getItemAtPosition(position).toString());
+                        ListView selfSelectedUnits = (ListView) findViewById(R.id.self_units);
+                        ArrayAdapter<String> selfSelectedUnitsAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, selfSelectedUnitList);
+                        selfSelectedUnits.setAdapter(selfSelectedUnitsAdapter);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
             }
 
             @Override
@@ -83,17 +94,26 @@ public class BattleHelper extends ActionBarActivity {
                     opponentAvailableUnitList.add(oppCards.get(i).getName());
                 }
 
-                ListView opponentAvailableUnits = (ListView) findViewById(R.id.opponent_units);
-                ArrayAdapter<String> oppAvailAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, opponentAvailableUnitList){
-                    @Override
-                    public View getView(int position, View convertView, ViewGroup parent) {
-                        View view = super.getView(position, convertView, parent);
-                        TextView textView = (TextView) view.findViewById(android.R.id.text1);
-                        textView.setTextColor(Color.BLACK);
-                        return view;
-                    }
-                };
+                final Spinner opponentAvailableUnits = (Spinner) findViewById(R.id.opponent_avail_units);
+                ArrayAdapter<String> oppAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, opponentAvailableUnitList);
                 opponentAvailableUnits.setAdapter(oppAvailAdapter);
+                opponentAvailableUnits.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if(opponentSelectedUnitList == null){
+                            opponentSelectedUnitList = new ArrayList<>();
+                        }
+                        opponentSelectedUnitList.add(opponentAvailableUnits.getItemAtPosition(position).toString());
+                        ListView opponentSelectedUnits = (ListView) findViewById(R.id.opponent_units);
+                        ArrayAdapter<String> opponentSelectedUnitsAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, opponentSelectedUnitList);
+                        opponentSelectedUnits.setAdapter(opponentSelectedUnitsAdapter);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
             }
 
             @Override
