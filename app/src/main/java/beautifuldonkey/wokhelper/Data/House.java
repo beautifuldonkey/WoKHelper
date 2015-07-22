@@ -9,13 +9,15 @@ public class House {
     private String houseName;
     private String houseSummary;
     private String houseDescription;
+    private String houseMotivation;
 
 
-    public House (int id, String name,String summary, String desc){
+    public House (int id, String name,String summary, String desc, String motivation){
         this.houseId = id;
         this.houseName = name;
         this.houseSummary = summary;
         this.houseDescription = desc;
+        this.houseMotivation = motivation;
     }
 
     public int getId(){return houseId;}
@@ -36,6 +38,14 @@ public class House {
     }
     public void setHouseSummary(String houseSummary) {
         this.houseSummary = houseSummary;
+    }
+
+    public String getHouseMotivation() {
+        return houseMotivation;
+    }
+
+    public void setHouseMotivation(String houseMotivation) {
+        this.houseMotivation = houseMotivation;
     }
 
     @Override
