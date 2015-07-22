@@ -1,16 +1,21 @@
 package beautifuldonkey.wokhelper;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import beautifuldonkey.wokhelper.Data.Card;
@@ -21,13 +26,14 @@ import beautifuldonkey.wokhelper.Data.HouseData;
 
 public class BattleHelper extends ActionBarActivity {
 
-    String[] selfAvailableUnitList;
-    String[] opponentAvailableUnitList;
+    ArrayList<String> selfAvailableUnitList;
+    ArrayList<String> opponentAvailableUnitList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_helper);
+        final Context context = getApplicationContext();
 
         List<House> houses = HouseData.getHouseList();
         String[] houseNames = new String[houses.size()];
@@ -42,10 +48,24 @@ public class BattleHelper extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 List<Card> selfCards = DeckBuilder.buildHouseDeck(selfHouse.getItemAtPosition(position).toString());
-                selfAvailableUnitList = new String[selfCards.size()];
+                //selfAvailableUnitList = new String[selfCards.size()];
+                selfAvailableUnitList = new ArrayList<>();
                 for (int i = 0; i < selfCards.size(); i++) {
-                    selfAvailableUnitList[i] = selfCards.get(i).getName();
+                    //selfAvailableUnitList[i] = selfCards.get(i).getName();
+                    selfAvailableUnitList.add(selfCards.get(i).getName());
                 }
+
+                ListView selfAvailableUnits = (ListView) findViewById(R.id.self_units);
+                ArrayAdapter<String> selfAvailAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, selfAvailableUnitList){
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView textView = (TextView) view.findViewById(android.R.id.text1);
+                        textView.setTextColor(Color.BLACK);
+                        return view;
+                    }
+                };
+                selfAvailableUnits.setAdapter(selfAvailAdapter);
             }
 
             @Override
@@ -60,10 +80,24 @@ public class BattleHelper extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 List<Card> oppCards = DeckBuilder.buildHouseDeck(oppHouse.getItemAtPosition(position).toString());
-                opponentAvailableUnitList = new String[oppCards.size()];
-                for(int i=0; i<oppCards.size(); i++){
-                    opponentAvailableUnitList[i] = oppCards.get(i).getName();
+                //opponentAvailableUnitList = new String[oppCards.size()];
+                opponentAvailableUnitList = new ArrayList<>();
+                for (int i = 0; i < oppCards.size(); i++) {
+                    //opponentAvailableUnitList[i] = oppCards.get(i).getName();
+                    opponentAvailableUnitList.add(oppCards.get(i).getName());
                 }
+
+                ListView opponentAvailableUnits = (ListView) findViewById(R.id.opponent_units);
+                ArrayAdapter<String> oppAvailAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, opponentAvailableUnitList){
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView textView = (TextView) view.findViewById(android.R.id.text1);
+                        textView.setTextColor(Color.BLACK);
+                        return view;
+                    }
+                };
+                opponentAvailableUnits.setAdapter(oppAvailAdapter);
             }
 
             @Override
@@ -72,11 +106,6 @@ public class BattleHelper extends ActionBarActivity {
             }
         });
 
-        ListView selfAvailableUnits = (ListView) findViewById(R.id.self_units);
-        //ArrayAdapter<String> selfAvailAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, selfAvailableUnitList);
-        //selfAvailableUnits.setAdapter(selfAvailAdapter);
-
-        ListView opponentAvailableUnits = (ListView) findViewById(R.id.opponent_units);
 
     }
 

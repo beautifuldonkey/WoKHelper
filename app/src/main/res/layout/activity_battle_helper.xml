@@ -23,15 +23,16 @@
         android:layout_alignParentRight="true"/>
 
     <ListView
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/self_units"
         android:layout_below="@+id/self_house"/>
 
     <ListView
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/opponent_units"
-        android:layout_below="@+id/opponent_house"/>
+        android:layout_below="@+id/opponent_house"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>
