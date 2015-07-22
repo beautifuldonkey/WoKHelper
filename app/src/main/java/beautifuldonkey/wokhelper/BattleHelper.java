@@ -48,10 +48,8 @@ public class BattleHelper extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 List<Card> selfCards = DeckBuilder.buildHouseDeck(selfHouse.getItemAtPosition(position).toString());
-                //selfAvailableUnitList = new String[selfCards.size()];
                 selfAvailableUnitList = new ArrayList<>();
                 for (int i = 0; i < selfCards.size(); i++) {
-                    //selfAvailableUnitList[i] = selfCards.get(i).getName();
                     selfAvailableUnitList.add(selfCards.get(i).getName());
                 }
 
@@ -80,10 +78,8 @@ public class BattleHelper extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 List<Card> oppCards = DeckBuilder.buildHouseDeck(oppHouse.getItemAtPosition(position).toString());
-                //opponentAvailableUnitList = new String[oppCards.size()];
                 opponentAvailableUnitList = new ArrayList<>();
                 for (int i = 0; i < oppCards.size(); i++) {
-                    //opponentAvailableUnitList[i] = oppCards.get(i).getName();
                     opponentAvailableUnitList.add(oppCards.get(i).getName());
                 }
 
@@ -105,8 +101,6 @@ public class BattleHelper extends ActionBarActivity {
 
             }
         });
-
-
     }
 
     @Override
