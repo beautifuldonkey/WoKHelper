@@ -26,30 +26,31 @@ public class MotiviationList {
     }
 
     public static List<Motivation> getHouseMotivations(String house){
+        List<Motivation> houseMotivation = new ArrayList<>();
         switch(house){
             case "Teknes":
-                motivations.addAll(greedMotivations);
-                motivations.addAll(treacheryMotivations);
+                houseMotivation.addAll(greedMotivations);
+                houseMotivation.addAll(treacheryMotivations);
                 break;
             case "Shael Han":
-                motivations.addAll(dutyMotivations);
-                motivations.addAll(intrigueMotivations);
+                houseMotivation.addAll(dutyMotivations);
+                houseMotivation.addAll(intrigueMotivations);
                 break;
             case "Nasier":
-                motivations.addAll(dutyMotivations);
-                motivations.addAll(vengeanceMotivations);
+                houseMotivation.addAll(dutyMotivations);
+                houseMotivation.addAll(vengeanceMotivations);
                 break;
             case "Hadross":
-                motivations.addAll(greedMotivations);
-                motivations.addAll(vengeanceMotivations);
+                houseMotivation.addAll(greedMotivations);
+                houseMotivation.addAll(vengeanceMotivations);
                 break;
             case "Goritsi":
-                motivations.addAll(intrigueMotivations);
-                motivations.addAll(treacheryMotivations);
+                houseMotivation.addAll(intrigueMotivations);
+                houseMotivation.addAll(treacheryMotivations);
                 break;
         }
 
-        return motivations;
+        return houseMotivation;
     }
 
     static{
