@@ -93,8 +93,7 @@ public class HouseDetail extends ActionBarActivity {
 
     private void displayCard(Card card){
         Intent intent = new Intent(this, CardDetail.class);
-        intent.putExtra(CardDetail.CARD_ID,card.getId());
-        intent.putExtra("CARD", (Parcelable) card);
+        intent.putExtra("CARD", card);
         startActivityForResult(intent, WokConstants.CARD_DETAIL_REQUEST_CODE);
     }
 
