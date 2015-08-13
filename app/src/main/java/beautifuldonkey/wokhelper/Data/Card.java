@@ -21,9 +21,9 @@ public class Card implements Parcelable{
 
     //STATS
     private int wounds;
-    private int defense;
-    private int attack;
-    private int movement;
+    private int resiliance;
+    private int willpower;
+    private int mobility;
     private String defOne;
     private String defTwo;
     private String defThree;
@@ -36,7 +36,7 @@ public class Card implements Parcelable{
     private String defTen;
 
     public Card(String house, String name, String title, String type, int rank, int base, int size, String dz, int wounds,
-                int defense, int attack, int movement, String defOne, String defTwo, String defThree, String defFour, String defFive,
+                int resiliance, int willpower, int mobility, String defOne, String defTwo, String defThree, String defFour, String defFive,
                 String defSix, String defSeven, String defEight, String defNine, String defTen, String abilities){
         this.house = house;
         this.name = name;
@@ -47,9 +47,9 @@ public class Card implements Parcelable{
         this.size = size;
         this.dz = dz;
         this.wounds = wounds;
-        this.defense = defense;
-        this.attack = attack;
-        this.movement = movement;
+        this.resiliance = resiliance;
+        this.willpower = willpower;
+        this.mobility = mobility;
         this.defOne = defOne;
         this.defTwo = defTwo;
         this.defThree = defThree;
@@ -76,9 +76,9 @@ public class Card implements Parcelable{
 
         //STATS
         wounds = source.readInt();
-        defense = source.readInt();
-        attack = source.readInt();
-        movement = source.readInt();
+        resiliance = source.readInt();
+        willpower = source.readInt();
+        mobility = source.readInt();
         defOne = source.readString();
         defTwo = source.readString();
         defThree = source.readString();
@@ -108,9 +108,9 @@ public class Card implements Parcelable{
         dest.writeString(dz);
         dest.writeString(abilities);
         dest.writeInt(wounds);
-        dest.writeInt(defense);
-        dest.writeInt(attack);
-        dest.writeInt(movement);
+        dest.writeInt(resiliance);
+        dest.writeInt(willpower);
+        dest.writeInt(mobility);
         dest.writeString(defOne);
         dest.writeString(defTwo);
         dest.writeString(defThree);
@@ -177,27 +177,27 @@ public class Card implements Parcelable{
     }
 
     public int getDefense() {
-        return defense;
+        return resiliance;
     }
 
-    public void setDefense(int defense) {
-        this.defense = defense;
+    public void setDefense(int resiliance) {
+        this.resiliance = resiliance;
     }
 
     public int getAttack() {
-        return attack;
+        return willpower;
     }
 
-    public void setAttack(int attack) {
-        this.attack = attack;
+    public void setAttack(int willpower) {
+        this.willpower = willpower;
     }
 
     public int getMovement() {
-        return movement;
+        return mobility;
     }
 
-    public void setMovement(int movement) {
-        this.movement = movement;
+    public void setMovement(int mobility) {
+        this.mobility = mobility;
     }
 
     public String getDefOne() {
