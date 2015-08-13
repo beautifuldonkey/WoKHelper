@@ -4,11 +4,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
+ * Defines Card class - used for data of individual cards
  * Created by Jed on 4/29/2015.
  */
 public class Card implements Parcelable{
     
-    private int id;
     private String house;
     private String name;
     private String title;
@@ -35,10 +35,9 @@ public class Card implements Parcelable{
     private String defNine;
     private String defTen;
 
-    public Card(int id, String house, String name, String title, String type, int rank, int base, int size, String dz, int wounds,
+    public Card(String house, String name, String title, String type, int rank, int base, int size, String dz, int wounds,
                 int defense, int attack, int movement, String defOne, String defTwo, String defThree, String defFour, String defFive,
                 String defSix, String defSeven, String defEight, String defNine, String defTen, String abilities){
-        this.id = id;
         this.house = house;
         this.name = name;
         this.title = title;
@@ -65,32 +64,31 @@ public class Card implements Parcelable{
     }
 
     public Card (Parcel source){
-        id = source.readInt();
-          house = source.readString();
-          name = source.readString();
-          title = source.readString();
-          type = source.readString();
-          rank = source.readInt();
-          base = source.readInt();
-          size = source.readInt();
-          dz = source.readString();
-          abilities = source.readString();
+        house = source.readString();
+        name = source.readString();
+        title = source.readString();
+        type = source.readString();
+        rank = source.readInt();
+        base = source.readInt();
+        size = source.readInt();
+        dz = source.readString();
+        abilities = source.readString();
 
         //STATS
-          wounds = source.readInt();
-          defense = source.readInt();
-          attack = source.readInt();
-          movement = source.readInt();
-          defOne = source.readString();
-          defTwo = source.readString();
-          defThree = source.readString();
-          defFour = source.readString();
-          defFive = source.readString();
-          defSix = source.readString();
-          defSeven = source.readString();
-          defEight = source.readString();
-          defNine = source.readString();
-          defTen = source.readString();
+        wounds = source.readInt();
+        defense = source.readInt();
+        attack = source.readInt();
+        movement = source.readInt();
+        defOne = source.readString();
+        defTwo = source.readString();
+        defThree = source.readString();
+        defFour = source.readString();
+        defFive = source.readString();
+        defSix = source.readString();
+        defSeven = source.readString();
+        defEight = source.readString();
+        defNine = source.readString();
+        defTen = source.readString();
     }
 
     @Override
@@ -100,7 +98,6 @@ public class Card implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
         dest.writeString(house);
         dest.writeString(name);
         dest.writeString(title);
@@ -283,12 +280,6 @@ public class Card implements Parcelable{
         this.defTen = defTen;
     }
 
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
     public String getName() {
         return name;
     }
