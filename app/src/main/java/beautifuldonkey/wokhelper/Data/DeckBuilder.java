@@ -118,14 +118,37 @@ public class DeckBuilder{
                 ,2,2,7,6,"MAGIC","MAGIC","MAGIC","MAGIC","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
 
-        nasierDeck.add(new Card("Teknes", "Defender Lineman", "Citizen", "Infantry", 1,30,2,"B"
-                ,1,1,5,6,"ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","BLOCK","PARRY","STRIKE","STRIKE","OVERPOWER","1,9,51"));
+        nasierDeck.add(new Card("Nasier", "Ashmen Swordsman", "Ashmen", "Infantry", 1,30,2,"B"
+                ,1,1,5,7,"PARRY","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "Ashmen Hakar", "Ashmen", "Leader", 1,30,2,"B"
+                ,3,1,6,7,"PARRY","PARRY","PARRY","DODGE","DODGE","BLOCK","BLOCK","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "Alayna Heska", "Ashmen", "Leader Character", 2,30,2,"B"
+                ,2,2,6,7,"PARRY","PARRY","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "Pelegarth Bloodmask", "Pelegarth", "Infantry", 1,30,2,"C"
+                ,1,1,5,6,"PARRY","BLOCK","BLOCK","BLOCK","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "Pelegarth Howl", "Pelegarth", "Leader", 1,30,2,"C"
+                ,3,1,6,6,"PARRY","BLOCK","BLOCK","BLOCK","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "Elsis Tagil, The Wail of War", "Pelegarth", "Leader Character", 2,30,2,"C"
+                ,2,2,6,6,"PARRY","PARRY","PARRY","BLOCK","BLOCK","BLOCK","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "Longhorn", null, "Specialist", 1,40,3,"C"
+                ,3,1,5,7,"PARRY","PARRY","PARRY","BLOCK","BLOCK","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "Rathor", null, "Specialist", 1,50,3,"B"
+                ,3,1,6,6,"MAGIC","MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "Greathorn", null, "Specialist", 2,80,5,"B"
+                ,3,2,6,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","PARRY","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "The Bloodchild", null, "Specialist Character", 2,50,3,"B"
+                ,2,2,7,8,"MAGIC","MAGIC","PARRY","PARRY","BLOCK","BLOCK","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "Shadrus Arikim", null, "Specialist Character", 2,40,3,"B"
+                ,5,1,6,7,"PARRY","PARRY","PARRY","DODGE","DODGE","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","")); //need to add skills
+        nasierDeck.add(new Card("Nasier", "The Blind Hakar", null, "Specialist Character", 2,40,2,"C"
+                ,2,2,7,7,"PARRY","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
-        goritsiDeck.add(new Card("Teknes", "Union Boss", "Union Member", "Leader", 1,40,3,"C"
-                ,3,1,6,5,"ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","PARRY","STRIKE","STRIKE","STRIKE","OVERPOWER","7,47,48,70,71,72"));
 
-        shaelHanDeck.add(new Card("Teknes", "Union Worker", "Union Member", "Infantry", 1,30,2,"C"
-                ,2,1,4,5,"ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","5,40,41"));
+        goritsiDeck.add(new Card("Goritsi", "Union Boss", "Union Member", "Leader", 1,40,3,"C"
+                ,3,1,6,5,"ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","PARRY","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+
+        shaelHanDeck.add(new Card("ShaelHan", "Union Worker", "Union Member", "Infantry", 1,30,2,"C"
+                ,2,1,4,5,"ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
     }
 
