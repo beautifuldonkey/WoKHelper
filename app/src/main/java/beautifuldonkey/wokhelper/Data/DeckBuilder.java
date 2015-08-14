@@ -86,10 +86,37 @@ public class DeckBuilder{
         teknesDeck.add(new Card("Teknes", "Lineman Boris", null, "Specialist Character", 2,40,2,"B"
                 ,2,2,6,8,"PARRY","PARRY","PARRY","ARMOR","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
-        hadrossDeck.add(new Card("Hadross", "Placeholder", "Citizen", "Leader", 1,30,2,"B"
-                ,3,1,6,6,"ARMOR","ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","PARRY","STRIKE","STRIKE","OVERPOWER","8,9,49,50,52"));
-        hadrossDeck.add(new Card("Hadross", "Placeholder", "Citizen", "Leader", 1,30,2,"B"
-                ,3,1,6,6,"ARMOR","ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","PARRY","STRIKE","STRIKE","OVERPOWER","8,9,49,50,52"));
+        hadrossDeck.add(new Card("Hadross", "Deepman Gaurdian", "Deepman", "Infantry", 1,30,2,"A"
+                ,1,1,6,5,"MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Deepman Kaxes", "Deepman", "Leader", 1,40,3,"A"
+                ,3,1,6,5,"MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Torvosh The Bannerman", "Deepman", "Leader Character", 2,30,2,"A"
+                ,2,2,7,5,"MAGIC","MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Sevirdan Gutter", "Sevirdan", "Infantry", 2,30,2,"B"
+                ,1,2,6,6,"MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Deepman Kaxes", "Sevirdan", "Leader", 1,40,2,"B"
+                ,2,2,6,6,"MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Torvosh The Bannerman", "Sevirdan", "Leader Character", 2,30,2,"B"
+                ,2,2,6,6,"MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Sevirdan Frenzy", "Carcharian", "Infantry", 2,40,3,"B"
+                ,2,1,5,5,"MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","STRIKE","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Frenzy Charger", "Carcharian", "Leader", 1,40,3,"B"
+                ,3,1,5,7,"MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Gar The Gladiator", "Carcharian", "Leader Character", 2,40,3,"B"
+                ,2,2,6,6,"MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Deep Caller", null, "Specialist", 1,30,2,"A"
+                ,3,1,7,5,"MAGIC","MAGIC","MAGIC","MAGIC","BLOCK","BLOCK","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Calith Reaver", null, "Specialist", 1,50,4,"B"
+                ,2,2,5,6,"ARMOR","ARMOR","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Orsund Cavalier", null, "Specialist", 2,80,5,"B"
+                ,3,2,6,6,"MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Deep Caller", null, "Specialist Character", 2,30,2,"A"
+                ,2,2,7,6,"MAGIC","MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Calith Reaver", null, "Specialist Character", 2,30,2,"A"
+                ,2,2,7,5,"MAGIC","MAGIC","MAGIC","MAGIC","MAGIC","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        hadrossDeck.add(new Card("Hadross", "Orsund Cavalier", null, "Specialist Character", 2,30,2,"A"
+                ,2,2,7,6,"MAGIC","MAGIC","MAGIC","MAGIC","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+
 
         nasierDeck.add(new Card("Teknes", "Defender Lineman", "Citizen", "Infantry", 1,30,2,"B"
                 ,1,1,5,6,"ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","BLOCK","PARRY","STRIKE","STRIKE","OVERPOWER","1,9,51"));
