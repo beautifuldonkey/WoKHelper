@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,7 +57,7 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView item = (TextView) convertView.findViewById(R.id.test_name);
 
-        ImageView delete = (ImageView) convertView.findViewById(R.id.btn_delete);
+        Button delete = (Button) convertView.findViewById(R.id.btn_delete);
         delete.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
