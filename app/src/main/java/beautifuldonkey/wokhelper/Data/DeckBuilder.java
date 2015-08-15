@@ -144,8 +144,36 @@ public class DeckBuilder{
                 ,2,2,7,7,"PARRY","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
 
-        goritsiDeck.add(new Card("Goritsi", "Union Boss", "Union Member", "Leader", 1,40,3,"C"
-                ,3,1,6,5,"ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","PARRY","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "War Dancer", "Zeti", "Infantry", 1,30,2,"C"
+                ,1,1,5,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Dancing Master", "Zeti", "Leader", 1,30,2,"C"
+                ,3,1,6,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "War Dancer", "Zeti", "Leader Character", 1,30,2,"C"
+                ,2,2,6,7,"MAGIC","MAGIC","MAGIC","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Skorza Skirmisher", "Skorza", "Infantry", 2,40,3,"B"
+                ,2,1,6,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Skorza Alpha", "Skorza", "Leader", 1,50,3,"B"
+                ,3,1,6,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Korrad Ungarash", "Skorza", "Leader Character", 2,50,3,"B"
+                ,2,2,6,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Ravenscar Mercenary", "Ravenscar", "Infantry", 1,30,2,"C"
+                ,1,1,5,6,"PARRY","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Ravenscar Sergeant", "Ravenscar", "Leader", 1,30,2,"C"
+                ,3,1,6,6,"PARRY","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Lord Hob", "Ravenscar", "Leader Character", 2,30,2,"C"
+                ,3,2,6,6,"PARRY","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Ravenscar Mercenary", null, "Specialist", 1,50,3,"B"
+                ,3,1,6,6,"MAGIC","MAGIC","ARMOR","ARMOR","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Ravenscar Sergeant", null, "Specialist", 1,40,3,"B"
+                ,2,1,6,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Lord Hob", null, "Specialist", 2,80,5,"B"
+                ,6,1,5,6,"MAGIC","MAGIC","MAGIC","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Gregorio don Sissora", null, "Specialist Character", 2,40,3,"B"
+                ,2,2,6,8,"MAGIC","MAGIC","PARRY","PARRY","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "The Dragonslayer", null, "Specialist Character", 2,30,2,"*"
+                ,2,2,6,7,"PARRY","PARRY","PARRY","DODGE","DODGE","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        goritsiDeck.add(new Card("Goritsi", "Duke Anton don Genoria", null, "Specialist Character", 2,50,3,"B"
+                ,6,1,6,6,"MAGIC","MAGIC","PARRY","DODGE","DODGE","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
         shaelHanDeck.add(new Card("ShaelHan", "Union Worker", "Union Member", "Infantry", 1,30,2,"C"
                 ,2,1,4,5,"ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
