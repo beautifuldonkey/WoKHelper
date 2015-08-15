@@ -175,8 +175,36 @@ public class DeckBuilder{
         goritsiDeck.add(new Card("Goritsi", "Duke Anton don Genoria", null, "Specialist Character", 2,50,3,"B"
                 ,6,1,6,6,"MAGIC","MAGIC","PARRY","DODGE","DODGE","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
-        shaelHanDeck.add(new Card("ShaelHan", "Union Worker", "Union Member", "Infantry", 1,30,2,"C"
-                ,2,1,4,5,"ARMOR","ARMOR","ARMOR","BLOCK","BLOCK","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Dragon Legionnaire", "Dragon Gaurd", "Infantry", 1,30,2,"B"
+                ,1,1,5,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Dragon Legion Keeper", "Dragon Gaurd", "Leader", 1,30,2,"B"
+                ,3,1,6,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "The Winterhawk", "Dragon Gaurd", "Leader Character", 2,30,2,"B"
+                ,5,1,7,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","PARRY","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "The Wrath", "The Children", "Infantry", 2,40,3,"C"
+                ,2,1,6,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Big Sister", "The Children", "Leader", 1,40,3,"C"
+                ,3,1,6,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "The Warchild", "The Children", "Leader Character", 2,50,4,"C"
+                ,3,2,6,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","PARRY","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Iron Lotus Warrior", "Lotus Warrior", "Infantry", 1,30,2,"C"
+                ,1,1,5,5,"MAGIC","MAGIC","DODGE","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Black Lotus", "Lotus Warrior", "Leader", 1,30,2,"C"
+                ,3,1,6,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Madam Mui", "Lotus Warrior", "Leader Character", 2,30,2,"C"
+                ,5,1,6,7,"MAGIC","MAGIC","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Shield of Taelfon", null, "Specialist", 1,30,2,"B"
+                ,3,1,6,7,"MAGIC","MAGIC","MAGIC","MAGIC","MAGIC","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Hammer of Heaven", null, "Specialist", 1,40,2,"C"
+                ,3,1,5,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Madam Mui", null, "Specialist", 2,80,5,"A"
+                ,3,2,7,6,"MAGIC","MAGIC","MAGIC","PARRY","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "The Deathbloom", null, "Specialist Character", 2,30,2,"C"
+                ,5,1,6,7,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","DODGE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "The Red Willow", null, "Specialist Character", 2,30,2,"C"
+                ,2,2,6,7,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","DODGE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+        shaelHanDeck.add(new Card("ShaelHan", "Hong Yao", null, "Specialist Character", 2,30,2,"C"
+                ,2,2,5,6,"MAGIC","MAGIC","PARRY","PARRY","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
     }
 
