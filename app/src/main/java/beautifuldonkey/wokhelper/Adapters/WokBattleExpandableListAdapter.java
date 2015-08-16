@@ -30,8 +30,7 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
     private Map<String, List<String>> laptopCollections;
     private List<String> laptops;
 
-    public WokBattleExpandableListAdapter(Activity context, List<String> laptops,
-                                 Map<String, List<String>> laptopCollections) {
+    public WokBattleExpandableListAdapter(Activity context, List<String> laptops, Map<String, List<String>> laptopCollections) {
         this.context = context;
         this.laptopCollections = laptopCollections;
         this.laptops = laptops;
@@ -104,8 +103,7 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
         return groupPosition;
     }
 
-    public View getGroupView(int groupPosition, boolean isExpanded,
-                             View convertView, ViewGroup parent) {
+    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         String laptopName = (String) getGroup(groupPosition);
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) context
@@ -113,7 +111,7 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.battle_army_summary,
                     null);
         }
-        TextView item = (TextView) convertView.findViewById(R.id.test);
+        TextView item = (TextView) convertView.findViewById(R.id.houseName);
         item.setTypeface(null, Typeface.BOLD);
         item.setText(laptopName);
         return convertView;
