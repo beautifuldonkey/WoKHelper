@@ -107,6 +107,11 @@ public class BattleHelper extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 selfSummary.setMotivation(availMotivationList.get(i));
+                battleSummary.clear();
+                battleSummary.add(selfSummary);
+                battleSummary.add(oppSummary);
+                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
+                expListView.setAdapter(expListAdapter);
             }
 
             @Override
@@ -157,9 +162,6 @@ public class BattleHelper extends ActionBarActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selfCurrentHouse = selfHouse.getItemAtPosition(position).toString();
                 selfSummary.setName(selfCurrentHouse);
-                battleSummary.clear();
-                battleSummary.add(selfSummary);
-                battleSummary.add(oppSummary);
 
                 expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
                 expListView.setAdapter(expListAdapter);
@@ -171,6 +173,7 @@ public class BattleHelper extends ActionBarActivity {
                     availMotivationList.add(motivations.get(i).getName());
                 }
                 motivationAdapter.notifyDataSetChanged();
+                selfSummary.setMotivation(availMotivationList.get(0));
 
                 selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
                 selfAvailableUnitList = new ArrayList<>();
@@ -179,6 +182,10 @@ public class BattleHelper extends ActionBarActivity {
                 }
                 selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
                 selfAvailableUnits.setAdapter(selfAvailAdapter);
+
+                battleSummary.clear();
+                battleSummary.add(selfSummary);
+                battleSummary.add(oppSummary);
             }
 
             @Override

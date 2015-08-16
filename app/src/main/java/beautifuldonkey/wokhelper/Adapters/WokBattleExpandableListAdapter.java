@@ -121,9 +121,12 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.battle_army_summary,
                     null);
         }
-        TextView item = (TextView) convertView.findViewById(R.id.houseName);
-        item.setTypeface(null, Typeface.BOLD);
-        item.setText(summary.getName());
+        TextView txtName = (TextView) convertView.findViewById(R.id.houseName);
+        txtName.setTypeface(null, Typeface.BOLD);
+        txtName.setText(summary.getName());
+
+        TextView txtMotivation= (TextView) convertView.findViewById(R.id.motivation);
+        txtMotivation.setText(summary.getMotivation());
         return convertView;
     }
 
