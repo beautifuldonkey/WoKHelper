@@ -137,6 +137,7 @@ public class BattleHelper extends ActionBarActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selfCurrentHouse = selfHouse.getItemAtPosition(position).toString();
                 createGroupList();
+                createCollection();
                 expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection);
                 expListView.setAdapter(expListAdapter);
 
@@ -171,14 +172,19 @@ public class BattleHelper extends ActionBarActivity {
         oppHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String currentHouse = oppHouse.getItemAtPosition(position).toString();
-                List<Card> oppCards = DeckBuilder.buildHouseDeck(currentHouse);
+                oppCurrentHouse = oppHouse.getItemAtPosition(position).toString();
+                createGroupList();
+                createCollection();
+                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection);
+                expListView.setAdapter(expListAdapter);
+
+                List<Card> oppCards = DeckBuilder.buildHouseDeck(oppCurrentHouse);
                 opponentAvailableUnitList = new ArrayList<>();
                 for (int i = 0; i < oppCards.size(); i++) {
                     opponentAvailableUnitList.add(oppCards.get(i).getName());
                 }
 
-                List<Motivation> motivations = MotiviationList.getHouseMotivations(currentHouse);
+                List<Motivation> motivations = MotiviationList.getHouseMotivations(oppCurrentHouse);
                 ArrayList<String> availMotivationList = new ArrayList<>();
                 for (int i = 0; i < motivations.size(); i++) {
                     availMotivationList.add(motivations.get(i).getName());
@@ -217,13 +223,9 @@ public class BattleHelper extends ActionBarActivity {
     }
 
     private void createGroupList() {
-        groupList = new ArrayList<String>();
+        groupList = new ArrayList<>();
         groupList.add(selfCurrentHouse);
         groupList.add(oppCurrentHouse);
-        groupList.add("Lenovo");
-//        groupList.add("Sony");
-//        groupList.add("HCL");
-//        groupList.add("Samsung");
     }
 
     private void createCollection() {
@@ -238,7 +240,7 @@ public class BattleHelper extends ActionBarActivity {
         String[] dellModels = { "Inspiron", "Vostro", "XPS" };
         String[] samsungModels = { "NP Series", "Series 5", "SF Series" };
 
-        laptopCollection = new LinkedHashMap<String, List<String>>();
+        laptopCollection = new LinkedHashMap<>();
 
         for (String laptop : groupList) {
             if (laptop.equals("HP")) {
@@ -259,7 +261,6 @@ public class BattleHelper extends ActionBarActivity {
     }
 
     private void loadChild(String[] laptopModels) {
-        childList = new ArrayList<String>();
         for (String model : laptopModels)
             childList.add(model);
     }
