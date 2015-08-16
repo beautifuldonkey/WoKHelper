@@ -32,7 +32,7 @@ public class MotiviationList {
                 houseMotivation.addAll(greedMotivations);
                 houseMotivation.addAll(treacheryMotivations);
                 break;
-            case "Shael Han":
+            case "ShaelHan":
                 houseMotivation.addAll(dutyMotivations);
                 houseMotivation.addAll(intrigueMotivations);
                 break;
