@@ -7,6 +7,7 @@ package beautifuldonkey.wokhelper.Adapters;
 import java.util.List;
 import java.util.Map;
 
+import beautifuldonkey.wokhelper.Data.ArmySummary;
 import beautifuldonkey.wokhelper.R;
 
 import android.app.Activity;
@@ -29,11 +30,13 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
     private Activity context;
     private Map<String, List<String>> laptopCollections;
     private List<String> laptops;
+    private List<ArmySummary> battleSummary;
 
-    public WokBattleExpandableListAdapter(Activity context, List<String> laptops, Map<String, List<String>> laptopCollections) {
+    public WokBattleExpandableListAdapter(Activity context, List<String> laptops, Map<String, List<String>> laptopCollections, List<ArmySummary> battleSummary) {
         this.context = context;
         this.laptopCollections = laptopCollections;
         this.laptops = laptops;
+        this.battleSummary = battleSummary;
     }
 
     public Object getChild(int groupPosition, int childPosition) {
@@ -88,11 +91,16 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public int getChildrenCount(int groupPosition) {
-        return laptopCollections.get(laptops.get(groupPosition)).size();
+        int childCount = 0;
+        if(!laptopCollections.isEmpty()){
+            childCount = laptopCollections.get(laptops.get(groupPosition)).size();
+        }
+        return childCount;
     }
 
     public Object getGroup(int groupPosition) {
-        return laptops.get(groupPosition);
+//        return laptops.get(groupPosition);
+        return battleSummary.get(groupPosition);
     }
 
     public int getGroupCount() {
@@ -104,7 +112,9 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String laptopName = (String) getGroup(groupPosition);
+        //this is where current incoming data mapping is displayed ont he screen
+//        String laptopName = (String) getGroup(groupPosition);
+        ArmySummary summary = (ArmySummary)getGroup(groupPosition);
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -113,7 +123,7 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
         }
         TextView item = (TextView) convertView.findViewById(R.id.houseName);
         item.setTypeface(null, Typeface.BOLD);
-        item.setText(laptopName);
+        item.setText(summary.getName());
         return convertView;
     }
 

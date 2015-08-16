@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import beautifuldonkey.wokhelper.Adapters.WokBattleExpandableListAdapter;
+import beautifuldonkey.wokhelper.Data.ArmySummary;
 import beautifuldonkey.wokhelper.Data.Card;
 import beautifuldonkey.wokhelper.Data.DeckBuilder;
 import beautifuldonkey.wokhelper.Data.House;
@@ -51,6 +52,9 @@ public class BattleHelper extends ActionBarActivity {
     Spinner selfAvailableUnits;
     List<Card> selfCards;
     ArrayAdapter<String> selfAvailAdapter;
+    List<ArmySummary> battleSummary;
+    ArmySummary selfSummary;
+    ArmySummary oppSummary;
 
     List<String> groupList;
     List<String> childList;
@@ -63,6 +67,11 @@ public class BattleHelper extends ActionBarActivity {
         setContentView(R.layout.activity_battle_helper);
         final Context context = this;
         final Activity thisActivity = this;
+        selfSummary = new ArmySummary("","","");
+        oppSummary = new ArmySummary("","","");
+        battleSummary = new ArrayList<>();
+        battleSummary.add(selfSummary);
+        battleSummary.add(oppSummary);
 
         List<House> houses = HouseData.getHouseList();
         String[] houseNames = new String[houses.size()];
@@ -74,7 +83,7 @@ public class BattleHelper extends ActionBarActivity {
         createCollection();
         expListView = (ExpandableListView) findViewById(R.id.sectionHolder);
 
-        expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection);
+        expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
         expListView.setAdapter(expListAdapter);
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
@@ -94,6 +103,17 @@ public class BattleHelper extends ActionBarActivity {
         spinnerMotivations = (Spinner) findViewById(R.id.self_motivation);
         motivationAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, availMotivationList);
         spinnerMotivations.setAdapter(motivationAdapter);
+        spinnerMotivations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selfSummary.setMotivation(availMotivationList.get(i));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
         selfAvailableUnitList = new ArrayList<>();
@@ -136,9 +156,12 @@ public class BattleHelper extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selfCurrentHouse = selfHouse.getItemAtPosition(position).toString();
-                createGroupList();
-                createCollection();
-                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection);
+                selfSummary.setName(selfCurrentHouse);
+                battleSummary.clear();
+                battleSummary.add(selfSummary);
+                battleSummary.add(oppSummary);
+
+                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
                 expListView.setAdapter(expListAdapter);
 
                 motivations.clear();
@@ -149,8 +172,6 @@ public class BattleHelper extends ActionBarActivity {
                 }
                 motivationAdapter.notifyDataSetChanged();
 
-
-                //TODO update available units
                 selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
                 selfAvailableUnitList = new ArrayList<>();
                 for (int i = 0; i < selfCards.size(); i++) {
@@ -158,7 +179,6 @@ public class BattleHelper extends ActionBarActivity {
                 }
                 selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
                 selfAvailableUnits.setAdapter(selfAvailAdapter);
-//                selfAvailAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -173,9 +193,14 @@ public class BattleHelper extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 oppCurrentHouse = oppHouse.getItemAtPosition(position).toString();
+                oppSummary.setName(oppCurrentHouse);
+                battleSummary.clear();
+                battleSummary.add(selfSummary);
+                battleSummary.add(oppSummary);
+
                 createGroupList();
                 createCollection();
-                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection);
+                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
                 expListView.setAdapter(expListAdapter);
 
                 List<Card> oppCards = DeckBuilder.buildHouseDeck(oppCurrentHouse);
@@ -261,6 +286,7 @@ public class BattleHelper extends ActionBarActivity {
     }
 
     private void loadChild(String[] laptopModels) {
+        childList = new ArrayList<>();
         for (String model : laptopModels)
             childList.add(model);
     }
