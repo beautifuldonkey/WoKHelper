@@ -6,7 +6,19 @@
     android:padding="10dp" >
 
     <TextView
-        android:id="@+id/test"
+        android:id="@+id/houseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"/>
+
+    <TextView
+        android:id="@+id/motivation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"/>
+
+    <TextView
+        android:id="@+id/units"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="25dp"/>
