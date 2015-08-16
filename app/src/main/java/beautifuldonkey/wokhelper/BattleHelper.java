@@ -48,6 +48,9 @@ public class BattleHelper extends ActionBarActivity {
     Spinner spinnerMotivations;
     List<Motivation> motivations;
     ArrayList<String> availMotivationList;
+    Spinner selfAvailableUnits;
+    List<Card> selfCards;
+    ArrayAdapter<String> selfAvailAdapter;
 
     List<String> groupList;
     List<String> childList;
@@ -92,6 +95,40 @@ public class BattleHelper extends ActionBarActivity {
         motivationAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, availMotivationList);
         spinnerMotivations.setAdapter(motivationAdapter);
 
+        selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
+        selfAvailableUnitList = new ArrayList<>();
+        for (int i = 0; i < selfCards.size(); i++) {
+            selfAvailableUnitList.add(selfCards.get(i).getName());
+        }
+
+        selfAvailableUnits = (Spinner) findViewById(R.id.self_avail_units);
+        selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
+        selfAvailableUnits.setAdapter(selfAvailAdapter);
+        selfAvailableUnits.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (selfSelectedUnitList == null) {
+                    selfSelectedUnitList = new ArrayList<>();
+                }
+                selfSelectedUnitList.add(selfAvailableUnits.getItemAtPosition(position).toString());
+                final ListView selfSelectedUnits = (ListView) findViewById(R.id.self_units);
+                final ArrayAdapter<String> selfSelectedUnitsAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, selfSelectedUnitList);
+                selfSelectedUnits.setAdapter(selfSelectedUnitsAdapter);
+                selfSelectedUnits.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        selfSelectedUnitList.remove(i);
+                        selfSelectedUnitsAdapter.notifyDataSetChanged();
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         ArrayAdapter<String> houseArrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, houseNames);
         final Spinner selfHouse = (Spinner) findViewById(R.id.self_house);
         selfHouse.setAdapter(houseArrayAdapter);
@@ -112,40 +149,15 @@ public class BattleHelper extends ActionBarActivity {
                 motivationAdapter.notifyDataSetChanged();
 
 
-                List<Card> selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
+                //TODO update available units
+                selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
                 selfAvailableUnitList = new ArrayList<>();
                 for (int i = 0; i < selfCards.size(); i++) {
                     selfAvailableUnitList.add(selfCards.get(i).getName());
                 }
-
-
-                final Spinner selfAvailableUnits = (Spinner) findViewById(R.id.self_avail_units);
-                ArrayAdapter<String> selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
+                selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
                 selfAvailableUnits.setAdapter(selfAvailAdapter);
-                selfAvailableUnits.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        if(selfSelectedUnitList == null){
-                            selfSelectedUnitList = new ArrayList<>();
-                        }
-                        selfSelectedUnitList.add(selfAvailableUnits.getItemAtPosition(position).toString());
-                        final ListView selfSelectedUnits = (ListView) findViewById(R.id.self_units);
-                        final ArrayAdapter<String> selfSelectedUnitsAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, selfSelectedUnitList);
-                        selfSelectedUnits.setAdapter(selfSelectedUnitsAdapter);
-                        selfSelectedUnits.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                selfSelectedUnitList.remove(i);
-                                selfSelectedUnitsAdapter.notifyDataSetChanged();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
+//                selfAvailAdapter.notifyDataSetChanged();
             }
 
             @Override
