@@ -67,7 +67,7 @@ public class BattleHelper extends ActionBarActivity {
         setContentView(R.layout.activity_battle_helper);
         final Context context = this;
         final Activity thisActivity = this;
-        selfSummary = new ArmySummary("","","");
+        selfSummary = new ArmySummary("test","test1","test2");
         oppSummary = new ArmySummary("","","");
         battleSummary = new ArrayList<>();
         battleSummary.add(selfSummary);
@@ -95,163 +95,80 @@ public class BattleHelper extends ActionBarActivity {
         });
 
 
-        motivations = MotiviationList.getHouseMotivations(selfCurrentHouse);
-        availMotivationList = new ArrayList<>();
-        for(int i=0; i<motivations.size(); i++){
-            availMotivationList.add(motivations.get(i).getName());
-        }
-        spinnerMotivations = (Spinner) findViewById(R.id.self_motivation);
-        motivationAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, availMotivationList);
-        spinnerMotivations.setAdapter(motivationAdapter);
-        spinnerMotivations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                selfSummary.setMotivation(availMotivationList.get(i));
-                battleSummary.clear();
-                battleSummary.add(selfSummary);
-                battleSummary.add(oppSummary);
-                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
-                expListView.setAdapter(expListAdapter);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
         selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
         selfAvailableUnitList = new ArrayList<>();
         for (int i = 0; i < selfCards.size(); i++) {
             selfAvailableUnitList.add(selfCards.get(i).getName());
         }
 
-        selfAvailableUnits = (Spinner) findViewById(R.id.self_avail_units);
+        selfAvailableUnits = (Spinner) findViewById(R.id.avail_units);
         selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
-        selfAvailableUnits.setAdapter(selfAvailAdapter);
-        selfAvailableUnits.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (selfSelectedUnitList == null) {
-                    selfSelectedUnitList = new ArrayList<>();
-                }
-                selfSelectedUnitList.add(selfAvailableUnits.getItemAtPosition(position).toString());
-                final ListView selfSelectedUnits = (ListView) findViewById(R.id.self_units);
-                final ArrayAdapter<String> selfSelectedUnitsAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, selfSelectedUnitList);
-                selfSelectedUnits.setAdapter(selfSelectedUnitsAdapter);
-                selfSelectedUnits.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        selfSelectedUnitList.remove(i);
-                        selfSelectedUnitsAdapter.notifyDataSetChanged();
-                    }
-                });
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+//        selfAvailableUnits.setAdapter(selfAvailAdapter);
+//        selfAvailableUnits.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                if (selfSelectedUnitList == null) {
+//                    selfSelectedUnitList = new ArrayList<>();
+//                }
+//                selfSelectedUnitList.add(selfAvailableUnits.getItemAtPosition(position).toString());
+//                final ListView selfSelectedUnits = (ListView) findViewById(R.id.self_units);
+//                final ArrayAdapter<String> selfSelectedUnitsAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, selfSelectedUnitList);
+//                selfSelectedUnits.setAdapter(selfSelectedUnitsAdapter);
+//                selfSelectedUnits.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                        selfSelectedUnitList.remove(i);
+//                        selfSelectedUnitsAdapter.notifyDataSetChanged();
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
 
         ArrayAdapter<String> houseArrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, houseNames);
-        final Spinner selfHouse = (Spinner) findViewById(R.id.self_house);
-        selfHouse.setAdapter(houseArrayAdapter);
-        selfHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selfCurrentHouse = selfHouse.getItemAtPosition(position).toString();
-                selfSummary.setName(selfCurrentHouse);
+        final Spinner selfHouse = (Spinner) findViewById(R.id.house);
+//        selfHouse.setAdapter(houseArrayAdapter);
+//        selfHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                selfCurrentHouse = selfHouse.getItemAtPosition(position).toString();
+//                selfSummary.setName(selfCurrentHouse);
+//
+//                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
+//                expListView.setAdapter(expListAdapter);
+//
+//                motivations.clear();
+//                availMotivationList.clear();
+//                motivations = MotiviationList.getHouseMotivations(selfCurrentHouse);
+//                for(int i=0; i<motivations.size(); i++){
+//                    availMotivationList.add(motivations.get(i).getName());
+//                }
+//                motivationAdapter.notifyDataSetChanged();
+//                selfSummary.setMotivation(availMotivationList.get(0));
+//
+//                selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
+//                selfAvailableUnitList = new ArrayList<>();
+//                for (int i = 0; i < selfCards.size(); i++) {
+//                    selfAvailableUnitList.add(selfCards.get(i).getName());
+//                }
+//                selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
+//                selfAvailableUnits.setAdapter(selfAvailAdapter);
+//
+//                battleSummary.clear();
+//                battleSummary.add(selfSummary);
+//                battleSummary.add(oppSummary);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
 
-                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
-                expListView.setAdapter(expListAdapter);
-
-                motivations.clear();
-                availMotivationList.clear();
-                motivations = MotiviationList.getHouseMotivations(selfCurrentHouse);
-                for(int i=0; i<motivations.size(); i++){
-                    availMotivationList.add(motivations.get(i).getName());
-                }
-                motivationAdapter.notifyDataSetChanged();
-                selfSummary.setMotivation(availMotivationList.get(0));
-
-                selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
-                selfAvailableUnitList = new ArrayList<>();
-                for (int i = 0; i < selfCards.size(); i++) {
-                    selfAvailableUnitList.add(selfCards.get(i).getName());
-                }
-                selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
-                selfAvailableUnits.setAdapter(selfAvailAdapter);
-
-                battleSummary.clear();
-                battleSummary.add(selfSummary);
-                battleSummary.add(oppSummary);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        final Spinner oppHouse = (Spinner) findViewById(R.id.opponent_house);
-        oppHouse.setAdapter(houseArrayAdapter);
-        oppHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                oppCurrentHouse = oppHouse.getItemAtPosition(position).toString();
-                oppSummary.setName(oppCurrentHouse);
-                battleSummary.clear();
-                battleSummary.add(selfSummary);
-                battleSummary.add(oppSummary);
-
-                createGroupList();
-                createCollection();
-                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
-                expListView.setAdapter(expListAdapter);
-
-                List<Card> oppCards = DeckBuilder.buildHouseDeck(oppCurrentHouse);
-                opponentAvailableUnitList = new ArrayList<>();
-                for (int i = 0; i < oppCards.size(); i++) {
-                    opponentAvailableUnitList.add(oppCards.get(i).getName());
-                }
-
-                List<Motivation> motivations = MotiviationList.getHouseMotivations(oppCurrentHouse);
-                ArrayList<String> availMotivationList = new ArrayList<>();
-                for (int i = 0; i < motivations.size(); i++) {
-                    availMotivationList.add(motivations.get(i).getName());
-                }
-                Spinner spinnerMotivations = (Spinner) findViewById(R.id.opponent_motivation);
-                ArrayAdapter<String> motivationAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, availMotivationList);
-                spinnerMotivations.setAdapter(motivationAdapter);
-
-                final Spinner opponentAvailableUnits = (Spinner) findViewById(R.id.opponent_avail_units);
-                ArrayAdapter<String> oppAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, opponentAvailableUnitList);
-                opponentAvailableUnits.setAdapter(oppAvailAdapter);
-                opponentAvailableUnits.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        if (opponentSelectedUnitList == null) {
-                            opponentSelectedUnitList = new ArrayList<>();
-                        }
-                        opponentSelectedUnitList.add(opponentAvailableUnits.getItemAtPosition(position).toString());
-                        ListView opponentSelectedUnits = (ListView) findViewById(R.id.opponent_units);
-                        ArrayAdapter<String> opponentSelectedUnitsAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, opponentSelectedUnitList);
-                        opponentSelectedUnits.setAdapter(opponentSelectedUnitsAdapter);
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
 
     private void createGroupList() {
@@ -264,28 +181,14 @@ public class BattleHelper extends ActionBarActivity {
         // preparing laptops collection(child)
         String[] hpModels = { "HP Pavilion G6-2014TX", "ProBook HP 4540",
                 "HP Envy 4-1025TX" };
-        String[] hclModels = { "HCL S2101", "HCL L2102", "HCL V2002" };
-        String[] lenovoModels = { "IdeaPad Z Series", "Essential G Series",
-                "ThinkPad X Series", "Ideapad Z Series" };
-        String[] sonyModels = { "VAIO E Series", "VAIO Z Series",
-                "VAIO S Series", "VAIO YB Series" };
-        String[] dellModels = { "Inspiron", "Vostro", "XPS" };
-        String[] samsungModels = { "NP Series", "Series 5", "SF Series" };
+        String[] lenovoModels = { "IdeaPad Z Series" };
 
         laptopCollection = new LinkedHashMap<>();
 
         for (String laptop : groupList) {
             if (laptop.equals("HP")) {
                 loadChild(hpModels);
-            } else if (laptop.equals("Dell"))
-                loadChild(dellModels);
-            else if (laptop.equals("Sony"))
-                loadChild(sonyModels);
-            else if (laptop.equals("HCL"))
-                loadChild(hclModels);
-            else if (laptop.equals("Samsung"))
-                loadChild(samsungModels);
-            else
+            } else
                 loadChild(lenovoModels);
 
             laptopCollection.put(laptop, childList);

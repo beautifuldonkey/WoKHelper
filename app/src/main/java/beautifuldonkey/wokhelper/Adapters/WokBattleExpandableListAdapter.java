@@ -4,10 +4,15 @@ package beautifuldonkey.wokhelper.Adapters;
  * provides a customized expandable list adapter for a battle
  * Created by beautifuldonkey on 8/14/2015.
  */
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import beautifuldonkey.wokhelper.Data.ArmySummary;
+import beautifuldonkey.wokhelper.Data.House;
+import beautifuldonkey.wokhelper.Data.HouseData;
+import beautifuldonkey.wokhelper.Data.Motivation;
+import beautifuldonkey.wokhelper.Data.MotiviationList;
 import beautifuldonkey.wokhelper.R;
 
 import android.app.Activity;
@@ -20,9 +25,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
@@ -49,7 +57,8 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
 
 
     public View getChildView(final int groupPosition, final int childPosition,
-                             boolean isLastChild, View convertView, ViewGroup parent) {
+                             boolean isLastChild, View convertView, final ViewGroup parent) {
+        final ArmySummary summary = (ArmySummary)getGroup(groupPosition);
         final String laptop = (String) getChild(groupPosition, childPosition);
         LayoutInflater inflater = context.getLayoutInflater();
 
@@ -57,36 +66,80 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = inflater.inflate(R.layout.battle_army_details, null);
         }
 
-        TextView item = (TextView) convertView.findViewById(R.id.test_name);
+        List<House> houses = HouseData.getHouseList();
+        final String[] houseNames = new String[houses.size()];
+        for(int i=0; i<houses.size(); i++){
+            houseNames[i] = houses.get(i).getHouseName();
+        }
+        ArrayAdapter<String> houseArrayAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, houseNames);
+        Spinner selfHouse = (Spinner) convertView.findViewById(R.id.house);
+        selfHouse.setAdapter(houseArrayAdapter);
+        selfHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterParent, View view, int position, long id) {
+//                String selfCurrentHouse = selfHouse.getItemAtPosition(position).toString();
+                String selfCurrentHouse = houseNames[position];
+                summary.setName(selfCurrentHouse);
 
-        Button delete = (Button) convertView.findViewById(R.id.btn_delete);
-        delete.setOnClickListener(new OnClickListener() {
+                TextView txtName = (TextView) parent.findViewById(R.id.houseName);
+                txtName.setText(summary.getName());
 
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage("Do you want to remove?");
-                builder.setCancelable(false);
-                builder.setPositiveButton("Yes",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                List<String> child =
-                                        laptopCollections.get(laptops.get(groupPosition));
-                                child.remove(childPosition);
-                                notifyDataSetChanged();
-                            }
-                        });
-                builder.setNegativeButton("No",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+//                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
+//                expListView.setAdapter(expListAdapter);
+
+//                motivations.clear();
+//                availMotivationList.clear();
+//                motivations = MotiviationList.getHouseMotivations(selfCurrentHouse);
+//                for(int i=0; i<motivations.size(); i++){
+//                    availMotivationList.add(motivations.get(i).getName());
+//                }
+//                motivationAdapter.notifyDataSetChanged();
+//                selfSummary.setMotivation(availMotivationList.get(0));
+//
+//                selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
+//                selfAvailableUnitList = new ArrayList<>();
+//                for (int i = 0; i < selfCards.size(); i++) {
+//                    selfAvailableUnitList.add(selfCards.get(i).getName());
+//                }
+//                selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
+//                selfAvailableUnits.setAdapter(selfAvailAdapter);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
-        item.setText(laptop);
+
+        List<Motivation> motivations = MotiviationList.getMotivations();
+        final ArrayList<String> availMotivationList = new ArrayList<>();
+        for(int i=0; i<motivations.size(); i++){
+            availMotivationList.add(motivations.get(i).getName());
+        }
+        Spinner spinnerMotivations = (Spinner) convertView.findViewById(R.id.motivation);
+        ArrayAdapter<String> motivationAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, availMotivationList);
+        spinnerMotivations.setAdapter(motivationAdapter);
+        spinnerMotivations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                selfSummary.setMotivation(availMotivationList.get(i));
+//                battleSummary.clear();
+//                battleSummary.add(selfSummary);
+//                battleSummary.add(oppSummary);
+//                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
+//                expListView.setAdapter(expListAdapter);
+                TextView summaryMotivation = (TextView) parent.findViewById(R.id.motivation);
+                summary.setMotivation(availMotivationList.get(i));
+                summaryMotivation.setText(summary.getMotivation());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         return convertView;
     }
 
@@ -127,6 +180,10 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView txtMotivation= (TextView) convertView.findViewById(R.id.motivation);
         txtMotivation.setText(summary.getMotivation());
+
+        TextView txtUnits = (TextView) convertView.findViewById(R.id.units);
+        txtUnits.setText(summary.getUnits());
+
         return convertView;
     }
 

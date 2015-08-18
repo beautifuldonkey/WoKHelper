@@ -4,18 +4,35 @@
     android:layout_height="wrap_content"
     android:padding="10dp" >
 
-    <TextView
-        android:id="@+id/test_name"
+    <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:paddingLeft="25dp" />
+        android:id="@+id/house"
+        android:spinnerMode="dropdown"
+        android:background="@android:drawable/btn_dropdown"
+        android:layout_alignParentLeft="true"/>
 
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/btn_delete"
-        android:text="Delete"/>
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/motivation"
+        android:spinnerMode="dropdown"
+        android:background="@android:drawable/btn_dropdown"
+        android:layout_toRightOf="@+id/house"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/avail_units"
+        android:spinnerMode="dropdown"
+        android:background="@android:drawable/btn_dropdown"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/house"/>
+
+    <ListView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/sel_units"
+        android:layout_below="@+id/avail_units"/>
 
 </RelativeLayout>
