@@ -38,20 +38,9 @@ import beautifuldonkey.wokhelper.Data.MotiviationList;
 
 public class BattleHelper extends ActionBarActivity {
 
-    ArrayList<String> selfAvailableUnitList;
-    ArrayList<String> selfSelectedUnitList;
-    ArrayList<String> opponentAvailableUnitList;
-    ArrayList<String> opponentSelectedUnitList;
     String selfCurrentHouse = "";
     String oppCurrentHouse = "";
     WokBattleExpandableListAdapter expListAdapter;
-    ArrayAdapter<String> motivationAdapter;
-    Spinner spinnerMotivations;
-    List<Motivation> motivations;
-    ArrayList<String> availMotivationList;
-    Spinner selfAvailableUnits;
-    List<Card> selfCards;
-    ArrayAdapter<String> selfAvailAdapter;
     List<ArmySummary> battleSummary;
     ArmySummary selfSummary;
     ArmySummary oppSummary;
@@ -89,85 +78,9 @@ public class BattleHelper extends ActionBarActivity {
 
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 final String selected = (String) expListAdapter.getChild(groupPosition, childPosition);
-                Toast.makeText(getBaseContext(), selected, Toast.LENGTH_LONG).show();
                 return true;
             }
         });
-
-
-        selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
-        selfAvailableUnitList = new ArrayList<>();
-        for (int i = 0; i < selfCards.size(); i++) {
-            selfAvailableUnitList.add(selfCards.get(i).getName());
-        }
-
-        selfAvailableUnits = (Spinner) findViewById(R.id.avail_units);
-        selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
-//        selfAvailableUnits.setAdapter(selfAvailAdapter);
-//        selfAvailableUnits.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                if (selfSelectedUnitList == null) {
-//                    selfSelectedUnitList = new ArrayList<>();
-//                }
-//                selfSelectedUnitList.add(selfAvailableUnits.getItemAtPosition(position).toString());
-//                final ListView selfSelectedUnits = (ListView) findViewById(R.id.self_units);
-//                final ArrayAdapter<String> selfSelectedUnitsAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, selfSelectedUnitList);
-//                selfSelectedUnits.setAdapter(selfSelectedUnitsAdapter);
-//                selfSelectedUnits.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                    @Override
-//                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                        selfSelectedUnitList.remove(i);
-//                        selfSelectedUnitsAdapter.notifyDataSetChanged();
-//                    }
-//                });
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
-        ArrayAdapter<String> houseArrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, houseNames);
-        final Spinner selfHouse = (Spinner) findViewById(R.id.house);
-//        selfHouse.setAdapter(houseArrayAdapter);
-//        selfHouse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                selfCurrentHouse = selfHouse.getItemAtPosition(position).toString();
-//                selfSummary.setName(selfCurrentHouse);
-//
-//                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
-//                expListView.setAdapter(expListAdapter);
-//
-//                motivations.clear();
-//                availMotivationList.clear();
-//                motivations = MotiviationList.getHouseMotivations(selfCurrentHouse);
-//                for(int i=0; i<motivations.size(); i++){
-//                    availMotivationList.add(motivations.get(i).getName());
-//                }
-//                motivationAdapter.notifyDataSetChanged();
-//                selfSummary.setMotivation(availMotivationList.get(0));
-//
-//                selfCards = DeckBuilder.buildHouseDeck(selfCurrentHouse);
-//                selfAvailableUnitList = new ArrayList<>();
-//                for (int i = 0; i < selfCards.size(); i++) {
-//                    selfAvailableUnitList.add(selfCards.get(i).getName());
-//                }
-//                selfAvailAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, selfAvailableUnitList);
-//                selfAvailableUnits.setAdapter(selfAvailAdapter);
-//
-//                battleSummary.clear();
-//                battleSummary.add(selfSummary);
-//                battleSummary.add(oppSummary);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
 
     }
 
