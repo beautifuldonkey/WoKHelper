@@ -67,7 +67,7 @@ public class BattleHelper extends ActionBarActivity {
         setContentView(R.layout.activity_battle_helper);
         final Context context = this;
         final Activity thisActivity = this;
-        selfSummary = new ArmySummary("test","test1","test2");
+        selfSummary = new ArmySummary("","","");
         oppSummary = new ArmySummary("","","");
         battleSummary = new ArrayList<>();
         battleSummary.add(selfSummary);
