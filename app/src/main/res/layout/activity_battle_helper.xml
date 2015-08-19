@@ -12,4 +12,12 @@
         android:id="@+id/sectionHolder"
         android:layout_alignParentLeft="true"/>
 
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/btn_start"
+        android:text="@string/btn_start"
+        android:layout_alignParentBottom="true"
+        />
+
 </RelativeLayout>

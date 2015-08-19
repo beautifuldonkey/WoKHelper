@@ -9,6 +9,7 @@
 
     <string name="btn_house_info">House Info</string>
     <string name="btn_battle_helper">Battle Helper</string>
+    <string name="btn_start">Start Battle</string>
 
     <string name="houseDescription">Description</string>
     <string name="houseUnits">Units</string>
