@@ -45,9 +45,6 @@ public class BattleHelper extends ActionBarActivity {
     ArmySummary selfSummary;
     ArmySummary oppSummary;
 
-    List<String> groupList;
-    List<String> childList;
-    Map<String, List<String>> laptopCollection;
     ExpandableListView expListView;
 
     @Override
@@ -62,17 +59,9 @@ public class BattleHelper extends ActionBarActivity {
         battleSummary.add(selfSummary);
         battleSummary.add(oppSummary);
 
-        List<House> houses = HouseData.getHouseList();
-        String[] houseNames = new String[houses.size()];
-        for(int i=0; i<houses.size(); i++){
-            houseNames[i] = houses.get(i).getHouseName();
-        }
-
-        createGroupList();
-        createCollection();
         expListView = (ExpandableListView) findViewById(R.id.sectionHolder);
 
-        expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
+        expListAdapter = new WokBattleExpandableListAdapter(thisActivity, battleSummary);
         expListView.setAdapter(expListAdapter);
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
@@ -82,54 +71,6 @@ public class BattleHelper extends ActionBarActivity {
             }
         });
 
-    }
-
-    private void createGroupList() {
-        groupList = new ArrayList<>();
-        groupList.add(selfCurrentHouse);
-        groupList.add(oppCurrentHouse);
-    }
-
-    private void createCollection() {
-        // preparing laptops collection(child)
-        String[] hpModels = { "HP Pavilion G6-2014TX", "ProBook HP 4540",
-                "HP Envy 4-1025TX" };
-        String[] lenovoModels = { "IdeaPad Z Series" };
-
-        laptopCollection = new LinkedHashMap<>();
-
-        for (String laptop : groupList) {
-            if (laptop.equals("HP")) {
-                loadChild(hpModels);
-            } else
-                loadChild(lenovoModels);
-
-            laptopCollection.put(laptop, childList);
-        }
-    }
-
-    private void loadChild(String[] laptopModels) {
-        childList = new ArrayList<>();
-        for (String model : laptopModels)
-            childList.add(model);
-    }
-
-    private void setGroupIndicatorToRight() {
-        /* Get the screen width */
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int width = dm.widthPixels;
-
-        expListView.setIndicatorBounds(width - getDipsFromPixel(35), width
-                - getDipsFromPixel(5));
-    }
-
-    // Convert pixel to dip
-    public int getDipsFromPixel(float pixels) {
-        // Get the screen's density scale
-        final float scale = getResources().getDisplayMetrics().density;
-        // Convert the dps to pixels, based on density scale
-        return (int) (pixels * scale + 0.5f);
     }
 
     @Override

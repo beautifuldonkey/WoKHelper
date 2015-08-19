@@ -39,19 +39,15 @@ import android.widget.TextView;
 public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Activity context;
-    private Map<String, List<String>> laptopCollections;
-    private List<String> laptops;
     private List<ArmySummary> battleSummary;
 
-    public WokBattleExpandableListAdapter(Activity context, List<String> laptops, Map<String, List<String>> laptopCollections, List<ArmySummary> battleSummary) {
+    public WokBattleExpandableListAdapter(Activity context, List<ArmySummary> battleSummary) {
         this.context = context;
-        this.laptopCollections = laptopCollections;
-        this.laptops = laptops;
         this.battleSummary = battleSummary;
     }
 
     public Object getChild(int groupPosition, int childPosition) {
-        return laptopCollections.get(laptops.get(groupPosition)).get(childPosition);
+        return battleSummary.get(groupPosition);
     }
 
     public long getChildId(int groupPosition, int childPosition) {
@@ -212,20 +208,15 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public int getChildrenCount(int groupPosition) {
-        int childCount = 0;
-        if(!laptopCollections.isEmpty()){
-            childCount = laptopCollections.get(laptops.get(groupPosition)).size();
-        }
-        return childCount;
+        return 1;
     }
 
     public Object getGroup(int groupPosition) {
-//        return laptops.get(groupPosition);
         return battleSummary.get(groupPosition);
     }
 
     public int getGroupCount() {
-        return laptops.size();
+        return battleSummary.size();
     }
 
     public long getGroupId(int groupPosition) {
@@ -234,7 +225,6 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
 
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         //this is where current incoming data mapping is displayed ont he screen
-//        String laptopName = (String) getGroup(groupPosition);
         ArmySummary summary = (ArmySummary)getGroup(groupPosition);
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) context
