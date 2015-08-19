@@ -2,6 +2,7 @@ package beautifuldonkey.wokhelper;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
@@ -34,6 +36,7 @@ import beautifuldonkey.wokhelper.Data.House;
 import beautifuldonkey.wokhelper.Data.HouseData;
 import beautifuldonkey.wokhelper.Data.Motivation;
 import beautifuldonkey.wokhelper.Data.MotiviationList;
+import beautifuldonkey.wokhelper.Data.WokConstants;
 
 
 public class BattleHelper extends ActionBarActivity {
@@ -71,6 +74,14 @@ public class BattleHelper extends ActionBarActivity {
             }
         });
 
+        Button btn_startBattle = (Button) findViewById(R.id.btn_start);
+        btn_startBattle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, BattleTracker.class);
+                startActivityForResult(intent, WokConstants.BATTLE_TRACKER_REQUEST_CODE);
+            }
+        });
     }
 
     @Override

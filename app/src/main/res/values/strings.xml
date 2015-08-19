@@ -23,5 +23,6 @@
     <string name="title_activity_battle_helper">BattleHelper</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_battle_tracker">BattleTracker</string>
 
 </resources>
