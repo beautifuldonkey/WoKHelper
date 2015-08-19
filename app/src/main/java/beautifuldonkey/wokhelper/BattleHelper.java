@@ -66,13 +66,6 @@ public class BattleHelper extends ActionBarActivity {
 
         expListAdapter = new WokBattleExpandableListAdapter(thisActivity, battleSummary);
         expListView.setAdapter(expListAdapter);
-        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                final String selected = (String) expListAdapter.getChild(groupPosition, childPosition);
-                return true;
-            }
-        });
 
         Button btn_startBattle = (Button) findViewById(R.id.btn_start);
         btn_startBattle.setOnClickListener(new View.OnClickListener() {
