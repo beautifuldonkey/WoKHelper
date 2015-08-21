@@ -36,12 +36,12 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
+public class BattleSetupExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Activity context;
     private List<ArmySummary> battleSummary;
 
-    public WokBattleExpandableListAdapter(Activity context, List<ArmySummary> battleSummary) {
+    public BattleSetupExpandableListAdapter(Activity context, List<ArmySummary> battleSummary) {
         this.context = context;
         this.battleSummary = battleSummary;
     }
@@ -58,8 +58,6 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(final int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, final ViewGroup parent) {
         final ArmySummary summary = (ArmySummary)getGroup(groupPosition);
-//        final String laptop = (String) getChild(groupPosition, childPosition);
-//        String currentHouse;
         LayoutInflater inflater = context.getLayoutInflater();
 
         if (convertView == null) {
@@ -91,12 +89,6 @@ public class WokBattleExpandableListAdapter extends BaseExpandableListAdapter {
         spinnerMotivations.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                selfSummary.setMotivation(availMotivationList.get(i));
-//                battleSummary.clear();
-//                battleSummary.add(selfSummary);
-//                battleSummary.add(oppSummary);
-//                expListAdapter = new WokBattleExpandableListAdapter(thisActivity, groupList, laptopCollection, battleSummary);
-//                expListView.setAdapter(expListAdapter);
                 TextView summaryMotivation = (TextView) parent.findViewById(R.id.motivation);
                 summary.setMotivation(availMotivationList.get(i));
                 summaryMotivation.setText(summary.getMotivation());
