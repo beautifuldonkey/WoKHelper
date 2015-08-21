@@ -3,48 +3,23 @@ package beautifuldonkey.wokhelper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-
-import beautifuldonkey.wokhelper.Adapters.WokBattleExpandableListAdapter;
+import beautifuldonkey.wokhelper.Adapters.BattleSetupExpandableListAdapter;
 import beautifuldonkey.wokhelper.Data.ArmySummary;
-import beautifuldonkey.wokhelper.Data.Card;
-import beautifuldonkey.wokhelper.Data.DeckBuilder;
-import beautifuldonkey.wokhelper.Data.House;
-import beautifuldonkey.wokhelper.Data.HouseData;
-import beautifuldonkey.wokhelper.Data.Motivation;
-import beautifuldonkey.wokhelper.Data.MotiviationList;
 import beautifuldonkey.wokhelper.Data.WokConstants;
 
 
 public class BattleHelper extends ActionBarActivity {
 
-    String selfCurrentHouse = "";
-    String oppCurrentHouse = "";
-    WokBattleExpandableListAdapter expListAdapter;
+    BattleSetupExpandableListAdapter expListAdapter;
     List<ArmySummary> battleSummary;
     ArmySummary selfSummary;
     ArmySummary oppSummary;
@@ -64,8 +39,7 @@ public class BattleHelper extends ActionBarActivity {
         battleSummary.add(oppSummary);
 
         expListView = (ExpandableListView) findViewById(R.id.sectionHolder);
-
-        expListAdapter = new WokBattleExpandableListAdapter(thisActivity, battleSummary);
+        expListAdapter = new BattleSetupExpandableListAdapter(thisActivity, battleSummary);
         expListView.setAdapter(expListAdapter);
 
         Button btn_startBattle = (Button) findViewById(R.id.btn_start);
