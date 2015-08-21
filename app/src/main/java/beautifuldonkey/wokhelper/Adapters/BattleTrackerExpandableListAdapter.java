@@ -57,6 +57,13 @@ public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapte
         }
         //TODO bind layout elements
 
+        List<Card> cards = DeckBuilder.buildDeck();
+
+        ListView txtArmyName = (ListView) convertView.findViewById(R.id.armyUnits);
+        ArrayAdapter<Card> cardArrayAdapter = new CardArrayAdapter(this.context, 0, cards);
+        txtArmyName.setAdapter(cardArrayAdapter);
+
+
         return convertView;
     }
 
@@ -104,5 +111,30 @@ public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapte
 
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    class CardArrayAdapter extends ArrayAdapter<Card>{
+
+        Context context;
+        List<Card> objects;
+
+        public CardArrayAdapter(Context context, int resource, List<Card> objects){
+            super(context, resource, objects);
+            this.context = context;
+            this.objects = objects;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            Card card = objects.get(position);
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.battle_unit, null);
+
+            TextView txtName = (TextView) view.findViewById(R.id.unitName);
+            txtName.setText(card.getName());
+
+            return view;
+        }
     }
 }
