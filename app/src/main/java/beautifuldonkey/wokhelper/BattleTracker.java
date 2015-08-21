@@ -1,29 +1,40 @@
 package beautifuldonkey.wokhelper;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import beautifuldonkey.wokhelper.Adapters.BattleTrackerExpandableListAdapter;
 import beautifuldonkey.wokhelper.Data.ArmySummary;
 
 public class BattleTracker extends ActionBarActivity {
+
+    ExpandableListView expListView;
+    BattleTrackerExpandableListAdapter expListAdapter;
+    List<ArmySummary> battleSummary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_tracker);
+        Activity activity = this;
 
-        List<ArmySummary> battleSummary = new ArrayList<>();
+        battleSummary = new ArrayList<>();
         battleSummary.add((ArmySummary) getIntent().getParcelableExtra("selfSummary"));
         battleSummary.add((ArmySummary) getIntent().getParcelableExtra("oppSummary"));
 
-        TextView textTest = (TextView) findViewById(R.id.textTest);
-        textTest.setText(battleSummary.get(0).getName());
+        expListView = (ExpandableListView) findViewById(R.id.armyList);
+        expListAdapter = new BattleTrackerExpandableListAdapter(activity, battleSummary);
+        expListView.setAdapter(expListAdapter);
+
     }
 
     @Override
