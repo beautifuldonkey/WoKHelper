@@ -110,9 +110,9 @@ public class DeckBuilder{
                 ,2,2,7,5,"MAGIC","MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         hadrossDeck.add(new Card("Hadross", "Sevirdan Gutter", "Sevirdan", "Infantry", 2,30,2,"B"
                 ,1,2,6,6,"MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        hadrossDeck.add(new Card("Hadross", "Deepman Kaxes", "Sevirdan", "Leader", 1,40,2,"B"
+        hadrossDeck.add(new Card("Hadross", "Gutter Friar", "Sevirdan", "Leader", 1,40,2,"B"
                 ,2,2,6,6,"MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        hadrossDeck.add(new Card("Hadross", "Torvosh The Bannerman", "Sevirdan", "Leader Character", 2,30,2,"B"
+        hadrossDeck.add(new Card("Hadross", "Ooroth of Sysor Deep", "Sevirdan", "Leader Character", 2,30,2,"B"
                 ,2,2,6,6,"MAGIC","MAGIC","BLOCK","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         hadrossDeck.add(new Card("Hadross", "Sevirdan Frenzy", "Carcharian", "Infantry", 2,40,3,"B"
                 ,2,1,5,5,"MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","STRIKE","")); //need to add skills
