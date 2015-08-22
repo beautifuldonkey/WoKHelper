@@ -68,7 +68,8 @@ public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapte
     }
 
     public int getChildrenCount(int groupPosition) {
-        return 1;
+        String [] units =  battleSummary.get(groupPosition).getUnits().split(",");
+        return units.length;
     }
 
     public Object getGroup(int groupPosition) {
