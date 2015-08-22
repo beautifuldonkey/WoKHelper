@@ -49,18 +49,17 @@ public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapte
 
     public View getChildView(final int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, final ViewGroup parent) {
-        final ArmySummary summary = (ArmySummary)getGroup(groupPosition);
+        ArmySummary summary = (ArmySummary)getGroup(groupPosition);
         LayoutInflater inflater = context.getLayoutInflater();
 
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.battle_tracker, null);
         }
-        //TODO bind layout elements
 
-        List<Card> cards = DeckBuilder.buildDeck();
+        List<Card> cards = DeckBuilder.buildArmyDeck(summary.getName(), summary.getUnits());
 
         ListView txtArmyName = (ListView) convertView.findViewById(R.id.armyUnits);
-        ArrayAdapter<Card> cardArrayAdapter = new CardArrayAdapter(this.context, 0, cards);
+        ArrayAdapter<Card> cardArrayAdapter = new CardArrayAdapter(this.context, 0, cards, childPosition);
         txtArmyName.setAdapter(cardArrayAdapter);
 
 
@@ -118,17 +117,21 @@ public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapte
 
         Context context;
         List<Card> objects;
+        int childPosition;
 
-        public CardArrayAdapter(Context context, int resource, List<Card> objects){
+        public CardArrayAdapter(Context context, int resource, List<Card> objects, int childPosition){
             super(context, resource, objects);
             this.context = context;
             this.objects = objects;
+            this.childPosition = childPosition;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            Card card = objects.get(position);
+            //TODO bind layout elements
+
+            Card card = objects.get(childPosition);
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = inflater.inflate(R.layout.battle_unit, null);
 
