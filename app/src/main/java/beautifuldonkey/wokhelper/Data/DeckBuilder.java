@@ -101,6 +101,7 @@ public class DeckBuilder{
         teknesDeck.add(new Card("Teknes", "Lineman Boris", null, "Specialist Character", 2,40,2,"B"
                 ,2,2,6,8,"PARRY","PARRY","PARRY","ARMOR","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
+
         hadrossDeck.add(new Card("Hadross", "Deepman Gaurdian", "Deepman", "Infantry", 1,30,2,"A"
                 ,1,1,6,5,"MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         hadrossDeck.add(new Card("Hadross", "Deepman Kaxes", "Deepman", "Leader", 1,40,3,"A"
@@ -125,11 +126,11 @@ public class DeckBuilder{
                 ,2,2,5,6,"ARMOR","ARMOR","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         hadrossDeck.add(new Card("Hadross", "Orsund Cavalier", null, "Specialist", 2,80,5,"B"
                 ,3,2,6,6,"MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        hadrossDeck.add(new Card("Hadross", "Deep Caller", null, "Specialist Character", 2,30,2,"A"
+        hadrossDeck.add(new Card("Hadross", "The Oracle of Ulloth", null, "Specialist Character", 2,30,2,"A"
                 ,2,2,7,6,"MAGIC","MAGIC","MAGIC","BLOCK","BLOCK","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        hadrossDeck.add(new Card("Hadross", "Calith Reaver", null, "Specialist Character", 2,30,2,"A"
+        hadrossDeck.add(new Card("Hadross", "Ephramatti - the Deepcaller Lord", null, "Specialist Character", 2,30,2,"A"
                 ,2,2,7,5,"MAGIC","MAGIC","MAGIC","MAGIC","MAGIC","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        hadrossDeck.add(new Card("Hadross", "Orsund Cavalier", null, "Specialist Character", 2,30,2,"A"
+        hadrossDeck.add(new Card("Hadross", "Ilva - the Syran of Kaldeth Strait", null, "Specialist Character", 2,30,2,"A"
                 ,2,2,7,6,"MAGIC","MAGIC","MAGIC","MAGIC","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
 
 
@@ -143,7 +144,7 @@ public class DeckBuilder{
                 ,1,1,5,6,"PARRY","BLOCK","BLOCK","BLOCK","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         nasierDeck.add(new Card("Nasier", "Pelegarth Howl", "Pelegarth", "Leader", 1,30,2,"C"
                 ,3,1,6,6,"PARRY","BLOCK","BLOCK","BLOCK","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        nasierDeck.add(new Card("Nasier", "Elsis Tagil, The Wail of War", "Pelegarth", "Leader Character", 2,30,2,"C"
+        nasierDeck.add(new Card("Nasier", "Elsis Tagil - The Wail of War", "Pelegarth", "Leader Character", 2,30,2,"C"
                 ,2,2,6,6,"PARRY","PARRY","PARRY","BLOCK","BLOCK","BLOCK","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         nasierDeck.add(new Card("Nasier", "Longhorn", null, "Specialist", 1,40,3,"C"
                 ,3,1,5,7,"PARRY","PARRY","PARRY","BLOCK","BLOCK","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
@@ -163,7 +164,7 @@ public class DeckBuilder{
                 ,1,1,5,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         goritsiDeck.add(new Card("Goritsi", "Dancing Master", "Zeti", "Leader", 1,30,2,"C"
                 ,3,1,6,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        goritsiDeck.add(new Card("Goritsi", "War Dancer", "Zeti", "Leader Character", 1,30,2,"C"
+        goritsiDeck.add(new Card("Goritsi", "Hestra Nostrollo", "Zeti", "Leader Character", 1,30,2,"C"
                 ,2,2,6,7,"MAGIC","MAGIC","MAGIC","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         goritsiDeck.add(new Card("Goritsi", "Skorza Skirmisher", "Skorza", "Infantry", 2,40,3,"B"
                 ,2,1,6,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
@@ -177,11 +178,11 @@ public class DeckBuilder{
                 ,3,1,6,6,"PARRY","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         goritsiDeck.add(new Card("Goritsi", "Lord Hob", "Ravenscar", "Leader Character", 2,30,2,"C"
                 ,3,2,6,6,"PARRY","PARRY","PARRY","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        goritsiDeck.add(new Card("Goritsi", "Ravenscar Mercenary", null, "Specialist", 1,50,3,"B"
+        goritsiDeck.add(new Card("Goritsi", "Shield Breaker", null, "Specialist", 1,50,3,"B"
                 ,3,1,6,6,"MAGIC","MAGIC","ARMOR","ARMOR","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        goritsiDeck.add(new Card("Goritsi", "Ravenscar Sergeant", null, "Specialist", 1,40,3,"B"
+        goritsiDeck.add(new Card("Goritsi", "Scourge Hound", null, "Specialist", 1,40,3,"B"
                 ,2,1,6,7,"MAGIC","MAGIC","DODGE","DODGE","DODGE","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        goritsiDeck.add(new Card("Goritsi", "Lord Hob", null, "Specialist", 2,80,5,"B"
+        goritsiDeck.add(new Card("Goritsi", "Blood Engine", null, "Specialist", 2,80,5,"B"
                 ,6,1,5,6,"MAGIC","MAGIC","MAGIC","ARMOR","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         goritsiDeck.add(new Card("Goritsi", "Gregorio don Sissora", null, "Specialist Character", 2,40,3,"B"
                 ,2,2,6,8,"MAGIC","MAGIC","PARRY","PARRY","DODGE","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
@@ -189,6 +190,7 @@ public class DeckBuilder{
                 ,2,2,6,7,"PARRY","PARRY","PARRY","DODGE","DODGE","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         goritsiDeck.add(new Card("Goritsi", "Duke Anton don Genoria", null, "Specialist Character", 2,50,3,"B"
                 ,6,1,6,6,"MAGIC","MAGIC","PARRY","DODGE","DODGE","ARMOR","ARMOR","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
+
 
         shaelHanDeck.add(new Card("ShaelHan", "Dragon Legionnaire", "Dragon Gaurd", "Infantry", 1,30,2,"B"
                 ,1,1,5,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
@@ -212,7 +214,7 @@ public class DeckBuilder{
                 ,3,1,6,7,"MAGIC","MAGIC","MAGIC","MAGIC","MAGIC","STRIKE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         shaelHanDeck.add(new Card("ShaelHan", "Hammer of Heaven", null, "Specialist", 1,40,2,"C"
                 ,3,1,5,6,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
-        shaelHanDeck.add(new Card("ShaelHan", "Madam Mui", null, "Specialist", 2,80,5,"A"
+        shaelHanDeck.add(new Card("ShaelHan", "Fulung Devourer", null, "Specialist", 2,80,5,"A"
                 ,3,2,7,6,"MAGIC","MAGIC","MAGIC","PARRY","ARMOR","ARMOR","STRIKE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
         shaelHanDeck.add(new Card("ShaelHan", "The Deathbloom", null, "Specialist Character", 2,30,2,"C"
                 ,5,1,6,7,"MAGIC","MAGIC","MAGIC","PARRY","PARRY","DODGE","DODGE","STRIKE","STRIKE","OVERPOWER","")); //need to add skills
