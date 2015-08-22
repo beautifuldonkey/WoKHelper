@@ -18,6 +18,7 @@ public class DeckBuilder{
     private static List<Card> nasierDeck    = new ArrayList<>();
     private static List<Card> goritsiDeck   = new ArrayList<>();
     private static List<Card> shaelHanDeck  = new ArrayList<>();
+
     public static List<Card> buildDeck() {
         deck.addAll(teknesDeck);
         deck.addAll(hadrossDeck);
@@ -49,6 +50,20 @@ public class DeckBuilder{
         }
 
         return houseDeck;
+    }
+
+    public static List<Card> buildArmyDeck(String houseName, String unitName){
+        String [] unitList = unitName.split(",");
+        List<Card> currentHouseDeck = buildHouseDeck(houseName);
+        List<Card> armyUnits = new ArrayList<>();
+        for(int i=0; i<unitList.length; i++){
+            for(int j=0; j<currentHouseDeck.size(); j++){
+                if(unitList[i].equals(currentHouseDeck.get(j).getName())){
+                    armyUnits.add(currentHouseDeck.get(j));
+                }
+            }
+        }
+        return armyUnits;
     }
 
     //Card(id, house, name, title, type, rank, base, size, dz
