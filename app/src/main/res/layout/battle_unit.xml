@@ -2,14 +2,203 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/unitName"/>
+        android:id="@+id/layoutUnitInfo"
+        android:layout_alignParentLeft="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/unitName"/>
 
-    <TextView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/unitName"
+            android:id="@+id/unitRank"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/unitRank"
+            android:id="@+id/unitType"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/unitType"
+            android:id="@+id/unitDz"/>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/unitRank"/>
+        android:id="@+id/layoutUnitAttributes"
+        android:layout_toRightOf="@+id/layoutUnitInfo">
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/unitImage"
+            android:id="@+id/moveLayout">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/moveImage"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/move"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:id="@+id/unitMove"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@+id/moveImage" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/moveLayout"
+            android:id="@+id/atckLayout">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/atckImage"
+                android:src="@drawable/atck"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:id="@+id/unitAttack"
+                android:layout_toRightOf="@+id/atckImage"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/atckLayout"
+            android:id="@+id/defLayout">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/defImage"
+                android:src="@drawable/shield"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="defense"
+                android:id="@+id/unitDefense"
+                android:layout_toRightOf="@+id/defImage"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/defLayout"
+            android:id="@+id/woundLayout">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/woundImage"
+                android:src="@drawable/wounds"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="wounds"
+                android:id="@+id/unitWounds"
+                android:layout_toRightOf="@+id/woundImage"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/layoutUnitDefense"-->
+        <!--android:layout_toRightOf="@+id/layoutUnitAttributes">-->
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutUnitUpperDefense"
+            android:layout_toLeftOf="@+id/layoutUnitLowerDefense">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defTen"
+                android:layout_alignParentTop="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defNine"
+                android:layout_below="@+id/defTen"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defEight"
+                android:layout_below="@+id/defNine"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defSeven"
+                android:layout_below="@+id/defEight"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defSix"
+                android:layout_below="@+id/defSeven"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutUnitLowerDefense"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defFive"
+                android:layout_alignParentTop="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defFour"
+                android:layout_below="@+id/defFive"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defThree"
+                android:layout_below="@+id/defFour" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defTwo"
+                android:layout_below="@+id/defThree"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text"
+                android:id="@+id/defOne"
+                android:layout_below="@+id/defTwo"/>
+        </RelativeLayout>
+
+    <!--</RelativeLayout>-->
 
 </RelativeLayout>
