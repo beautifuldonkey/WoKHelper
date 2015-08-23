@@ -59,7 +59,7 @@ public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapte
         List<Card> cards = DeckBuilder.buildArmyDeck(summary.getName(), summary.getUnits());
 
         ListView txtArmyName = (ListView) convertView.findViewById(R.id.armyUnits);
-        ArrayAdapter<Card> cardArrayAdapter = new CardArrayAdapter(this.context, 0, cards, childPosition);
+        ArrayAdapter<Card> cardArrayAdapter = new CardArrayAdapter(context, 0, cards, childPosition);
         txtArmyName.setAdapter(cardArrayAdapter);
 
 
@@ -137,6 +137,57 @@ public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapte
 
             TextView txtName = (TextView) view.findViewById(R.id.unitName);
             txtName.setText(card.getName());
+
+            TextView txtRank = (TextView) view.findViewById(R.id.unitRank);
+            txtRank.setText(String.valueOf(card.getRank()));
+
+            TextView txtType = (TextView) view.findViewById(R.id.unitType);
+            txtType.setText(card.getType());
+
+            TextView txtDz = (TextView) view.findViewById(R.id.unitDz);
+            txtDz.setText(card.getDz());
+
+            TextView txtWounds = (TextView) view.findViewById(R.id.unitWounds);
+            txtWounds.setText(String.valueOf(card.getWounds()));
+
+            TextView txtResiliance = (TextView) view.findViewById(R.id.unitDefense);
+            txtResiliance.setText(String.valueOf(card.getDefense()));
+
+            TextView txtWill = (TextView) view.findViewById(R.id.unitAttack);
+            txtWill.setText(String.valueOf(card.getAttack()));
+
+            TextView txtMove = (TextView) view.findViewById(R.id.unitMove);
+            txtMove.setText(String.valueOf(card.getMovement()));
+
+            TextView defOne = (TextView) view.findViewById(R.id.defOne);
+            defOne.setText("1: "+card.getDefOne());
+
+            TextView defTwo = (TextView) view.findViewById(R.id.defTwo);
+            defTwo.setText("2: "+card.getDefTwo());
+
+            TextView defThree = (TextView) view.findViewById(R.id.defThree);
+            defThree.setText("3: "+card.getDefThree());
+
+            TextView defFour = (TextView) view.findViewById(R.id.defFour);
+            defFour.setText("4: "+card.getDefFour());
+
+            TextView defFive = (TextView) view.findViewById(R.id.defFive);
+            defFive.setText("5: "+card.getDefFive());
+
+            TextView defSix = (TextView) view.findViewById(R.id.defSix);
+            defSix.setText("6: "+card.getDefSix());
+
+            TextView defSeven = (TextView) view.findViewById(R.id.defSeven);
+            defSeven.setText("7: "+card.getDefSeven());
+
+            TextView defEight = (TextView) view.findViewById(R.id.defEight);
+            defEight.setText("8: "+card.getDefEight());
+
+            TextView defNine = (TextView) view.findViewById(R.id.defNine);
+            defNine.setText("9: "+card.getDefNine());
+
+            TextView defTen = (TextView) view.findViewById(R.id.defTen);
+            defTen.setText("10: "+card.getDefTen());
 
             return view;
         }
