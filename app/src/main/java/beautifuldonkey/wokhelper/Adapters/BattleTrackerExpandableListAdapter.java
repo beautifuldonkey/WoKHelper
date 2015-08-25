@@ -3,6 +3,8 @@ package beautifuldonkey.wokhelper.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +12,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import beautifuldonkey.wokhelper.Data.Ability;
+import beautifuldonkey.wokhelper.Data.AbilityList;
 import beautifuldonkey.wokhelper.Data.ArmySummary;
 import beautifuldonkey.wokhelper.Data.Card;
 import beautifuldonkey.wokhelper.Data.DeckBuilder;
@@ -32,6 +37,7 @@ import beautifuldonkey.wokhelper.R;
 public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapter{
     private Activity context;
     private List<ArmySummary> battleSummary;
+    private List<Card> cards;
 
     public BattleTrackerExpandableListAdapter(Activity context, List<ArmySummary> battleSummary) {
         this.context = context;
@@ -56,11 +62,37 @@ public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapte
             convertView = inflater.inflate(R.layout.battle_tracker, null);
         }
 
-        List<Card> cards = DeckBuilder.buildArmyDeck(summary.getName(), summary.getUnits());
+        cards = DeckBuilder.buildArmyDeck(summary.getName(), summary.getUnits());
 
-        ListView txtArmyName = (ListView) convertView.findViewById(R.id.armyUnits);
+        ListView listArmyName = (ListView) convertView.findViewById(R.id.armyUnits);
         ArrayAdapter<Card> cardArrayAdapter = new CardArrayAdapter(context, 0, cards, childPosition);
-        txtArmyName.setAdapter(cardArrayAdapter);
+        listArmyName.setAdapter(cardArrayAdapter);
+        listArmyName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Log.d("POPUP","making popup");
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View popupView = inflater.inflate(R.layout.battle_tracker_popup, null);
+
+                Card card = cards.get(childPosition);
+                List<Ability> abilities = AbilityList.getAbilitiesById(card.getAbilities());
+
+                Log.d("POPUP", "popup card name: "+card.getName());
+                if(!abilities.isEmpty()){
+                    Log.d("POPUP", "popup ability name: "+abilities.get(0).getName());
+                }
+                ListView abilityList = (ListView) popupView.findViewById(R.id.abilityList);
+                ArrayAdapter<Ability> abilityAdapter = new AbilityArrayAdapter(context, 0, abilities);
+                abilityList.setAdapter(abilityAdapter);
+
+                Log.d("POPUP", "displaying popup");
+                PopupWindow abilityPopup = new PopupWindow(popupView,400,400);
+                abilityPopup.showAtLocation(view, Gravity.CENTER, 50, 50);
+
+
+            }
+        });
 
 
         return convertView;

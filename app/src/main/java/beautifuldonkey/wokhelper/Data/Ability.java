@@ -4,7 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by user on 5/10/2015.
+ * Defines Ability class, most units have at least one
+ * Created by beautifuldonkey on 5/10/2015.
  */
 public class Ability implements Parcelable{
     private int id;
