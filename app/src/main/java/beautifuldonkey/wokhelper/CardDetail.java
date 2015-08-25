@@ -15,13 +15,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import beautifuldonkey.wokhelper.Adapters.AbilityArrayAdapter;
 import beautifuldonkey.wokhelper.Data.Ability;
 import beautifuldonkey.wokhelper.Data.AbilityList;
 import beautifuldonkey.wokhelper.Data.Card;
 import beautifuldonkey.wokhelper.Data.House;
 
 /**
- * Created by Jed on 5/19/2015.
+ * added to display a selected ard
+ * Created by beautifuldonkey on 5/19/2015.
  */
 public class CardDetail extends ActionBarActivity {
 
@@ -57,7 +59,7 @@ public class CardDetail extends ActionBarActivity {
         displayCard(card);
 
         ListView unitAbilities = (ListView) findViewById(R.id.abilityList);
-        ArrayAdapter<Ability> abilityArrayAdapter = new abilityArrayAdapter(this,0, abilities);
+        ArrayAdapter<Ability> abilityArrayAdapter = new AbilityArrayAdapter(this,0, abilities);
         unitAbilities.setAdapter(abilityArrayAdapter);
     }
 
@@ -111,47 +113,5 @@ public class CardDetail extends ActionBarActivity {
 
         defTen = (TextView) findViewById(R.id.defTen);
         defTen.setText(card.getDefTen());
-    }
-}
-
-class abilityArrayAdapter extends ArrayAdapter<Ability> {
-
-    Context context;
-    List<Ability> objects;
-
-    public abilityArrayAdapter(Context context, int resource, List<Ability> objects) {
-        super(context, resource, objects);
-        this.context = context;
-        this.objects = objects;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        Ability ability = objects.get(position);
-
-        LayoutInflater inflater =  (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-
-        View view = inflater.inflate(R.layout.ability_item, null);
-
-        TextView tvAbilityName = (TextView)view.findViewById(R.id.abilityName);
-        tvAbilityName.setText(ability.getName());
-        TextView tvAbilityType = (TextView)view.findViewById(R.id.abilityType);
-        tvAbilityType.setText(ability.getType());
-        TextView tvAbilityDice = (TextView)view.findViewById(R.id.abilityDice);
-        tvAbilityDice.setText(ability.getDice());
-        TextView tvAbilityRange = (TextView)view.findViewById(R.id.abilityRange);
-        tvAbilityRange.setText(ability.getRange());
-        TextView tvAbilityDescription = (TextView)view.findViewById(R.id.abilityDescription);
-        String descText;
-        if(ability.getSubName()!= null){
-            descText = ability.getSubName() + " "+ ability.getDesc();
-        }else{
-            descText = ability.getDesc();
-        }
-        tvAbilityDescription.setText(descText);
-
-
-        return view;
     }
 }
