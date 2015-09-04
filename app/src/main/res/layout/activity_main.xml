@@ -4,19 +4,22 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="beautifuldonkey.wokhelper.MainActivity">
+    tools:context="beautifuldonkey.wokhelper.MainActivity"
+    android:background="@drawable/activity_background">
 
     <Button
         android:id="@+id/btn_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_house_info"/>
+        android:text="@string/btn_house_info"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btn_battle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_info"
-        android:text="@string/btn_battle_helper"/>
+        android:text="@string/btn_battle_helper"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

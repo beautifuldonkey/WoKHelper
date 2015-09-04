@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,11 +16,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.Iterator;
 import java.util.List;
 
-import beautifuldonkey.wokhelper.Data.Card;
-import beautifuldonkey.wokhelper.Data.DeckBuilder;
 import beautifuldonkey.wokhelper.Data.House;
 import beautifuldonkey.wokhelper.Data.HouseData;
 import beautifuldonkey.wokhelper.Data.WokConstants;
@@ -38,7 +34,7 @@ public class HouseChooser extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_house_chooser);
+        setContentView(R.layout.activity_house_chooser);
 
         houses = HouseData.getHouseList();
 

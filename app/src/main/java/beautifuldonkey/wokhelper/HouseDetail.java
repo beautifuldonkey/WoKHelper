@@ -3,11 +3,8 @@ package beautifuldonkey.wokhelper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
-import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.List;
 
 import beautifuldonkey.wokhelper.Data.Card;
@@ -40,7 +36,7 @@ public class HouseDetail extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_house_details);
+        setContentView(R.layout.activity_house_details);
         Context context = getApplicationContext();
         //cards = DeckBuilder.buildDeck();
         houseName = getIntent().getStringExtra(HouseChooser.HOUSE_NAME);

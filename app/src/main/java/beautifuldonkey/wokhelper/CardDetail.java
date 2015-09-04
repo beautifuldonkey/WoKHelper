@@ -1,15 +1,9 @@
 package beautifuldonkey.wokhelper;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,7 +13,6 @@ import beautifuldonkey.wokhelper.Adapters.AbilityArrayAdapter;
 import beautifuldonkey.wokhelper.Data.Ability;
 import beautifuldonkey.wokhelper.Data.AbilityList;
 import beautifuldonkey.wokhelper.Data.Card;
-import beautifuldonkey.wokhelper.Data.House;
 
 /**
  * added to display a selected ard
@@ -49,7 +42,7 @@ public class CardDetail extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.unit_details);
+        setContentView(R.layout.activity_unit_details);
         Context context = getApplicationContext();
 
         //List<Ability> abilities = AbilityList.getAbilities();
