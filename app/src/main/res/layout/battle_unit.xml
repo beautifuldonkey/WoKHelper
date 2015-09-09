@@ -117,7 +117,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/layoutUnitUpperDefense"
         android:layout_toLeftOf="@+id/layoutUnitLowerDefense">
@@ -128,72 +128,72 @@
             android:text="@string/def_text"
             android:id="@+id/defTen"
             android:layout_alignParentTop="true"
-            />
-        <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/defTenIcon"-->
-            <!--android:layout_alignParentTop="true"-->
-            <!--android:layout_alignParentRight="true"/>-->
+            android:layout_toLeftOf="@+id/defTenIcon"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/defTenIcon"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"/>
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/def_text"-->
-            <!--android:id="@+id/defNine"-->
-            <!--android:layout_below="@+id/defTen"-->
-            <!--android:layout_toLeftOf="@+id/defNineIcon"/>-->
-        <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/defNineIcon"-->
-            <!--android:layout_below="@+id/defTenIcon"-->
-            <!--android:layout_alignParentRight="true"/>-->
-        <!-- -->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/def_text"-->
-            <!--android:id="@+id/defEight"-->
-            <!--android:layout_below="@+id/defNine"-->
-            <!--android:layout_toLeftOf="@+id/defEightIcon"/>-->
-        <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/defEightIcon"-->
-            <!--android:layout_below="@+id/defNineIcon"-->
-            <!--android:layout_alignParentRight="true"/>-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/def_text"-->
-            <!--android:id="@+id/defSeven"-->
-            <!--android:layout_below="@+id/defEight"-->
-            <!--android:layout_toLeftOf="@+id/defSevenIcon"/>-->
-        <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/defSevenIcon"-->
-            <!--android:layout_below="@+id/defEightIcon"-->
-            <!--android:layout_alignParentRight="true"/>-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/def_text"-->
-            <!--android:id="@+id/defSix"-->
-            <!--android:layout_below="@+id/defSeven"-->
-            <!--android:layout_toLeftOf="@+id/defSixIcon"/>-->
-        <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/defSixIcon"-->
-            <!--android:layout_below="@+id/defSevenIcon"-->
-            <!--android:layout_alignParentRight="true"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/def_text"
+            android:id="@+id/defNine"
+            android:layout_below="@+id/defTen"
+            android:layout_toLeftOf="@+id/defNineIcon"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/defNineIcon"
+            android:layout_below="@+id/defTenIcon"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/def_text"
+            android:id="@+id/defEight"
+            android:layout_below="@+id/defNine"
+            android:layout_toLeftOf="@+id/defEightIcon"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/defEightIcon"
+            android:layout_below="@+id/defNineIcon"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/def_text"
+            android:id="@+id/defSeven"
+            android:layout_below="@+id/defEight"
+            android:layout_toLeftOf="@+id/defSevenIcon"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/defSevenIcon"
+            android:layout_below="@+id/defEightIcon"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/def_text"
+            android:id="@+id/defSix"
+            android:layout_below="@+id/defSeven"
+            android:layout_toLeftOf="@+id/defSixIcon"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/defSixIcon"
+            android:layout_below="@+id/defSevenIcon"
+            android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/layoutUnitLowerDefense"
         android:layout_alignParentRight="true">

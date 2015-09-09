@@ -232,45 +232,45 @@ public class BattleTrackerExpandableListAdapter extends BaseExpandableListAdapte
                     "icon_"+card.getDefFive().toLowerCase(),"drawable",context.getPackageName());
             defFiveIcon.setImageResource(defFiveRes);
 
-//            TextView defSix = (TextView) view.findViewById(R.id.defSix);
-////            defSix.setText("6: "+card.getDefSix());
-//            defSix.setText("6: ");
-//            ImageView defSixIcon = (ImageView) view.findViewById(R.id.defSixIcon);
-//            int defSixRes = context.getResources().getIdentifier(
-//                    "icon_"+card.getDefSix().toLowerCase(),"drawable",context.getPackageName());
-//            defSixIcon.setImageResource(defSixRes);
-//
-//            TextView defSeven = (TextView) view.findViewById(R.id.defSeven);
-////            defSeven.setText("7: "+card.getDefSeven());
-//            defSeven.setText("7: ");
-//            ImageView defSevenIcon = (ImageView) view.findViewById(R.id.defSevenIcon);
-//            int defSevenRes = context.getResources().getIdentifier(
-//                    "icon_"+card.getDefSeven().toLowerCase(),"drawable",context.getPackageName());
-//            defSevenIcon.setImageResource(defSevenRes);
-//
-//            TextView defEight = (TextView) view.findViewById(R.id.defEight);
-////            defEight.setText("8: "+card.getDefEight());
-//            defEight.setText("8: ");
-//            ImageView defEightIcon = (ImageView) view.findViewById(R.id.defEightIcon);
-//            int defEightRes = context.getResources().getIdentifier(
-//                    "icon_"+card.getDefEight().toLowerCase(),"drawable",context.getPackageName());
-//            defEightIcon.setImageResource(defEightRes);
-//
-//            TextView defNine = (TextView) view.findViewById(R.id.defNine);
-////            defNine.setText("9: " + card.getDefNine());
-//            defNine.setText("9: ");
-//            ImageView defNineIcon = (ImageView) view.findViewById(R.id.defNineIcon);
-//            int defNineRes = context.getResources().getIdentifier(
-//                    "icon_"+card.getDefNine().toLowerCase(),"drawable",context.getPackageName());
-//            defNineIcon.setImageResource(defNineRes);
+            TextView defSix = (TextView) view.findViewById(R.id.defSix);
+//            defSix.setText("6: "+card.getDefSix());
+            defSix.setText("6: ");
+            ImageView defSixIcon = (ImageView) view.findViewById(R.id.defSixIcon);
+            int defSixRes = context.getResources().getIdentifier(
+                    "icon_"+card.getDefSix().toLowerCase(),"drawable",context.getPackageName());
+            defSixIcon.setImageResource(defSixRes);
+
+            TextView defSeven = (TextView) view.findViewById(R.id.defSeven);
+//            defSeven.setText("7: "+card.getDefSeven());
+            defSeven.setText("7: ");
+            ImageView defSevenIcon = (ImageView) view.findViewById(R.id.defSevenIcon);
+            int defSevenRes = context.getResources().getIdentifier(
+                    "icon_"+card.getDefSeven().toLowerCase(),"drawable",context.getPackageName());
+            defSevenIcon.setImageResource(defSevenRes);
+
+            TextView defEight = (TextView) view.findViewById(R.id.defEight);
+//            defEight.setText("8: "+card.getDefEight());
+            defEight.setText("8: ");
+            ImageView defEightIcon = (ImageView) view.findViewById(R.id.defEightIcon);
+            int defEightRes = context.getResources().getIdentifier(
+                    "icon_"+card.getDefEight().toLowerCase(),"drawable",context.getPackageName());
+            defEightIcon.setImageResource(defEightRes);
+
+            TextView defNine = (TextView) view.findViewById(R.id.defNine);
+//            defNine.setText("9: " + card.getDefNine());
+            defNine.setText("9: ");
+            ImageView defNineIcon = (ImageView) view.findViewById(R.id.defNineIcon);
+            int defNineRes = context.getResources().getIdentifier(
+                    "icon_"+card.getDefNine().toLowerCase(),"drawable",context.getPackageName());
+            defNineIcon.setImageResource(defNineRes);
 
             TextView defTen = (TextView) view.findViewById(R.id.defTen);
 //            defTen.setText("10: "+card.getDefTen());
-//            defTen.setText("10: ");
-//            ImageView defTenIcon = (ImageView) view.findViewById(R.id.defTenIcon);
-//            int defTenRes = context.getResources().getIdentifier(
-//                    "icon_"+card.getDefTen().toLowerCase(),"drawable",context.getPackageName());
-//            defTenIcon.setImageResource(defTenRes);
+            defTen.setText("10: ");
+            ImageView defTenIcon = (ImageView) view.findViewById(R.id.defTenIcon);
+            int defTenRes = context.getResources().getIdentifier(
+                    "icon_"+card.getDefTen().toLowerCase(),"drawable",context.getPackageName());
+            defTenIcon.setImageResource(defTenRes);
 
             return view;
         }
